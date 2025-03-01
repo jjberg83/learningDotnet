@@ -1,0 +1,15 @@
+/Users/jjberg/Github/learningDotnet/Course/bin/Debug/net9.0/Course
+/Users/jjberg/Github/learningDotnet/Course/bin/Debug/net9.0/Course.deps.json
+/Users/jjberg/Github/learningDotnet/Course/bin/Debug/net9.0/Course.runtimeconfig.json
+/Users/jjberg/Github/learningDotnet/Course/bin/Debug/net9.0/Course.dll
+/Users/jjberg/Github/learningDotnet/Course/bin/Debug/net9.0/Course.pdb
+/Users/jjberg/Github/learningDotnet/Course/obj/Debug/net9.0/Course.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jjberg/Github/learningDotnet/Course/obj/Debug/net9.0/Course.AssemblyInfoInputs.cache
+/Users/jjberg/Github/learningDotnet/Course/obj/Debug/net9.0/Course.AssemblyInfo.cs
+/Users/jjberg/Github/learningDotnet/Course/obj/Debug/net9.0/Course.csproj.CoreCompileInputs.cache
+/Users/jjberg/Github/learningDotnet/Course/obj/Debug/net9.0/Course.sourcelink.json
+/Users/jjberg/Github/learningDotnet/Course/obj/Debug/net9.0/Course.dll
+/Users/jjberg/Github/learningDotnet/Course/obj/Debug/net9.0/refint/Course.dll
+/Users/jjberg/Github/learningDotnet/Course/obj/Debug/net9.0/Course.pdb
+/Users/jjberg/Github/learningDotnet/Course/obj/Debug/net9.0/Course.genruntimeconfig.cache
+/Users/jjberg/Github/learningDotnet/Course/obj/Debug/net9.0/ref/Course.dll
