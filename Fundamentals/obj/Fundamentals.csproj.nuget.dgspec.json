@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jjberg/Github/learningDotnet/Course/Course.csproj": {}
+    "/Users/jjberg/Github/learningDotnet/Fundamentals/Fundamentals.csproj": {}
   },
   "projects": {
-    "/Users/jjberg/Github/learningDotnet/Course/Course.csproj": {
+    "/Users/jjberg/Github/learningDotnet/Fundamentals/Fundamentals.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jjberg/Github/learningDotnet/Course/Course.csproj",
-        "projectName": "Course",
-        "projectPath": "/Users/jjberg/Github/learningDotnet/Course/Course.csproj",
+        "projectUniqueName": "/Users/jjberg/Github/learningDotnet/Fundamentals/Fundamentals.csproj",
+        "projectName": "Fundamentals",
+        "projectPath": "/Users/jjberg/Github/learningDotnet/Fundamentals/Fundamentals.csproj",
         "packagesPath": "/Users/jjberg/.nuget/packages/",
-        "outputPath": "/Users/jjberg/Github/learningDotnet/Course/obj/",
+        "outputPath": "/Users/jjberg/Github/learningDotnet/Fundamentals/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/jjberg/.nuget/NuGet/NuGet.Config"
