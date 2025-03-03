@@ -5,5 +5,6 @@ public class WorkingWithText_ExerciseLoop
     public static void Run()
     {
         Console.WriteLine("This is WorkingWithText_ExerciseLoop.cs running!");
+        int tall = "fri";
     }
 }
