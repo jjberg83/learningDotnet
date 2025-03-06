@@ -3,11 +3,6 @@ namespace Fundamentals.Working_with_text;
 //Note: For all these exercises, ignore input validation unless otherwise specified. 
 // Assume the user provides input in the format that the program expects.
 
-
-
-
-//4- Write a program and ask the user to enter a few words separated by a space. Use the words to create a variable name with PascalCase. For example, if the user types: "number of students", display "NumberOfStudents". Make sure that the program is not dependent on the input. So, if the user types "NUMBER OF STUDENTS", the program should still display "NumberOfStudents".
-
 //5- Write a program and ask the user to enter an English word. Count the number of vowels (a, e, o, u, i) in the word. So, if the user enters "inadequate", the program should display 6 on the console.
 
 public class WorkingWithText_Exercises
@@ -79,21 +74,28 @@ public class WorkingWithText_Exercises
         {
             Console.WriteLine("Invalid format");
         }
-
-
-        /*
-        string[] hoursAndMinutes = userInput.Split(':');
-        if( (string.IsNullOrWhiteSpace(hoursAndMinutes[hoursAndMinutes.Length-1]) && hoursAndMinutes.Length == 2) || 
-            (hoursAndMinutes.Length > 2))
-        {
-            Console.WriteLine("Invalid Time");
-        }
-        */
-
     }
+    // 4- Write a program and ask the user to enter a few words separated by a space. 
+    // Use the words to create a variable name with PascalCase. For example, 
+    // if the user types: "number of students", display "NumberOfStudents". 
+    // Make sure that the program is not dependent on the input. So, if the user 
+    // types "NUMBER OF STUDENTS", the program should still display "NumberOfStudents".
     public static void Exercise4()
     {
-        Console.WriteLine("This is Exercise 4");
+        Console.WriteLine("Enter a few words separated by a space:");
+        string? userInput = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(userInput))
+        {
+            Console.WriteLine("You didn't enter anything. Exercise will stop");
+            return;
+        }
+        
+        string variableNameInPascalCase = "";
+        foreach(string word in userInput.Split()) // Cool trick I learned from the instructor, define the variable inside foreach
+        {
+            variableNameInPascalCase += word.Substring(0,1).ToUpper() + word.Substring(1).ToLower();
+        }
+        Console.WriteLine(variableNameInPascalCase);
     }
     public static void Exercise5()
     {
