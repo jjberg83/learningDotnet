@@ -3,8 +3,6 @@ namespace Fundamentals.Working_with_text;
 //Note: For all these exercises, ignore input validation unless otherwise specified. 
 // Assume the user provides input in the format that the program expects.
 
-//5- Write a program and ask the user to enter an English word. Count the number of vowels (a, e, o, u, i) in the word. So, if the user enters "inadequate", the program should display 6 on the console.
-
 public class WorkingWithText_Exercises
 {
     //1- Write a program and ask the user to enter a few numbers separated by a hyphen. 
@@ -97,8 +95,23 @@ public class WorkingWithText_Exercises
         }
         Console.WriteLine(variableNameInPascalCase);
     }
+
+    //5- Write a program and ask the user to enter an English word. Count the number of 
+    // vowels (a, e, o, u, i) in the word. So, if the user enters "inadequate", the program 
+    // should display 6 on the console.
     public static void Exercise5()
     {
-        Console.WriteLine("This is Exercise 5");
+        Console.WriteLine("Enter an English word:");
+        string userInput = Console.ReadLine().Trim().ToLower();
+        int count = 0;
+        List<char> vowels = new List<char>() {'a', 'e','i','o','u'};
+        foreach(char letter in userInput)
+        {
+            if(vowels.Contains(letter))
+            {
+                count++;
+            }
+        }
+        Console.WriteLine($"The word you entered contains {count} vowels.");
     }
 }
