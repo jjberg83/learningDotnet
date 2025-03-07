@@ -4,8 +4,8 @@
 ## Get latest from `dotnet new gitignore`
 
 # Mine egen
-*bin/
-*obj/
+Fundamentals/bin/
+Fundamentals/obj/
 
 # dotenv files
 .env
