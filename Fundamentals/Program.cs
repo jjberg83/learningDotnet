@@ -2,4 +2,4 @@
 
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, Fundamentals!");
-WorkingWithText_ExerciseLoop.Run();
+WorkingWithText_MenuLoop.Run();

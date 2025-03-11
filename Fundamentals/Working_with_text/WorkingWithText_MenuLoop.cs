@@ -1,6 +1,6 @@
 namespace Fundamentals.Working_with_text;
 
-public class WorkingWithText_ExerciseLoop
+public class WorkingWithText_MenuLoop
 {
     public static void Run()
     {
@@ -8,7 +8,7 @@ public class WorkingWithText_ExerciseLoop
         while (loopButton)
         {
             Console.WriteLine("##################");
-            Console.WriteLine("Please choose an exercise between 1-5 (type 'Exit' to stop)");
+            Console.WriteLine("Please choose an exercise between 1-5 OR the name of the file you want to run (type 'Exit' to stop)");
             Console.WriteLine("##################");
             Console.WriteLine();
 
