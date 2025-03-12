@@ -21,35 +21,35 @@ public class WorkingWithText_MenuLoop
                     Console.WriteLine("Starting Exercise 1");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
-                    WorkingWithText_Exercises.Exercise1();
+                    WorkingWithText_Exercises_ProceduralProgrammingStyle.Exercise1();
                     break;
                 case "2":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Starting Exercise 2");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
-                    WorkingWithText_Exercises.Exercise2();
+                    WorkingWithText_Exercises_ProceduralProgrammingStyle.Exercise2();
                     break;
                 case "3":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Starting Exercise 3");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
-                    WorkingWithText_Exercises.Exercise3();
+                    WorkingWithText_Exercises_ProceduralProgrammingStyle.Exercise3();
                     break;
                 case "4":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Starting Exercise 4");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
-                    WorkingWithText_Exercises.Exercise4();
+                    WorkingWithText_Exercises_ProceduralProgrammingStyle.Exercise4();
                     break;
                 case "5":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Starting Exercise 5");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
-                    WorkingWithText_Exercises.Exercise5();
+                    WorkingWithText_Exercises_ProceduralProgrammingStyle.Exercise5();
                     break;
                 case "Exit":
                 case "exit":
