@@ -27,13 +27,7 @@ public class WorkingWithText_Exercises_ProceduralProgrammingStyle
     public static void Exercise2()
     {
         Console.WriteLine("Enter a few numbers separated by a hyphen:");
-        string? userInput = Console.ReadLine();
-        if(string.IsNullOrWhiteSpace(userInput))
-        {
-            Console.WriteLine("You did not enter anything, exercise will stop");
-            return;
-        }
-        Console.WriteLine(CheckForDuplicates(userInput)); // By this point we know that the input is not null, and can pass it to the function
+        Console.WriteLine(CheckForDuplicates(Console.ReadLine())); 
     }
 
     
@@ -43,24 +37,10 @@ public class WorkingWithText_Exercises_ProceduralProgrammingStyle
     public static void Exercise3()
     {
         Console.WriteLine("Please enter a time value in the 24-hour time format (between 00:00 and 23:59):");
-        string? userInput = Console.ReadLine();
-        if(string.IsNullOrWhiteSpace(userInput))
-        {
-            Console.WriteLine("You didn't enter anything, exercise will stop...");
-            Console.WriteLine("Invalid format");
-            return;
-        }
-        try
-        {
-            DateTime clockTime = DateTime.ParseExact(userInput, "HH:mm", null);
-            Console.WriteLine("Valid format");
-
-        }
-        catch(Exception ex)
-        {
-            Console.WriteLine("Invalid format");
-        }
+        Console.WriteLine(CreateClockTime(Console.ReadLine()));
+        
     }
+
     // 4- Write a program and ask the user to enter a few words separated by a space. 
     // Use the words to create a variable name with PascalCase. For example, 
     // if the user types: "number of students", display "NumberOfStudents". 
@@ -69,20 +49,10 @@ public class WorkingWithText_Exercises_ProceduralProgrammingStyle
     public static void Exercise4()
     {
         Console.WriteLine("Enter a few words separated by a space:");
-        string? userInput = Console.ReadLine();
-        if (string.IsNullOrWhiteSpace(userInput))
-        {
-            Console.WriteLine("You didn't enter anything. Exercise will stop");
-            return;
-        }
-        
-        string variableNameInPascalCase = "";
-        foreach(string word in userInput.Split()) // Cool trick I learned from the instructor, define the variable inside foreach
-        {
-            variableNameInPascalCase += word.Substring(0,1).ToUpper() + word.Substring(1).ToLower();
-        }
-        Console.WriteLine(variableNameInPascalCase);
+        Console.WriteLine(CreatePascalCase(Console.ReadLine())); 
     }
+
+    
 
     //5- Write a program and ask the user to enter an English word. Count the number of 
     // vowels (a, e, o, u, i) in the word. So, if the user enters "inadequate", the program 
@@ -90,17 +60,8 @@ public class WorkingWithText_Exercises_ProceduralProgrammingStyle
     public static void Exercise5()
     {
         Console.WriteLine("Enter an English word:");
-        string userInput = Console.ReadLine().Trim().ToLower();
-        int count = 0;
-        List<char> vowels = new List<char>() {'a', 'e','i','o','u'};
-        foreach(char letter in userInput)
-        {
-            if(vowels.Contains(letter))
-            {
-                count++;
-            }
-        }
-        Console.WriteLine($"The word you entered contains {count} vowels.");
+        Console.WriteLine(CountVowels(Console.ReadLine().Trim().ToLower()));
+        
     }
 
     ////////////////////////////////////////////
@@ -108,8 +69,12 @@ public class WorkingWithText_Exercises_ProceduralProgrammingStyle
     ////////////////////////////////////////////
     ///
 
-    public static string CheckForDuplicates(string userInput)
+    public static string CheckForDuplicates(string? userInput)
     {
+        if(string.IsNullOrWhiteSpace(userInput))
+        {
+            return "You did not enter anything, exercise will stop";
+        }
         string[] numbers = userInput.Split('-');
         if( (string.IsNullOrWhiteSpace(numbers[numbers.Length-1]) && numbers.Length == 2) || (numbers.Length < 2) )
         {
@@ -130,5 +95,53 @@ public class WorkingWithText_Exercises_ProceduralProgrammingStyle
             }
         }
         return "No duplicates";
+    }
+
+    public static string CreateClockTime(string? userInput)
+    {
+        if(string.IsNullOrWhiteSpace(userInput))
+        {
+            return @$"Inalid format (you didn't enter anything). 
+            Exercise will stop...";
+        }
+        try
+        {
+            DateTime clockTime = DateTime.ParseExact(userInput, "HH:mm", null);
+            return "Valid format";
+
+        }
+        catch(Exception ex)
+        {
+            return "Invalid format";
+        }
+    }
+
+    public static string CreatePascalCase(string? userInput)
+    {
+        if (string.IsNullOrWhiteSpace(userInput))
+        {
+            return "You didn't enter anything. Exercise will stop";
+        }
+        
+        string variableNameInPascalCase = "";
+        foreach(string word in userInput.Split()) // Cool trick I learned from the instructor, define the variable inside foreach
+        {
+            variableNameInPascalCase += word.Substring(0,1).ToUpper() + word.Substring(1).ToLower();
+        }
+        return variableNameInPascalCase;
+    }
+
+    public static string CountVowels(string? userInput)
+    {
+        int count = 0;
+        List<char> vowels = new List<char>() {'a', 'e','i','o','u'};
+        foreach(char letter in userInput)
+        {
+            if(vowels.Contains(letter))
+            {
+                count++;
+            }
+        }
+        return $"The word you entered contains {count} vowels.";
     }
 }
