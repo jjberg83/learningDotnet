@@ -4,8 +4,7 @@ public class WorkingWithFiles_MenuLoop
 {
     public static void Run()
     {
-        Console.WriteLine("You are now in the loop");
-        /*
+        
         bool loopButton = true;
         while (loopButton)
         {
@@ -18,40 +17,40 @@ public class WorkingWithFiles_MenuLoop
             
             switch(userInput)
             {
-                case "1":
+                case "FileAndFileInfo":
                     Console.WriteLine("-----------------");
-                    Console.WriteLine("Starting Exercise 1");
+                    Console.WriteLine("Starting FileAndFileInfo.cs");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
-                    WorkingWithText_Exercises_ProceduralProgrammingStyle.Exercise1();
+                    WorkingWithFiles_Exercises.Exercise1();
                     break;
                 case "2":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Starting Exercise 2");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
-                    WorkingWithText_Exercises_ProceduralProgrammingStyle.Exercise2();
+                    WorkingWithFiles_Exercises.Exercise2();
                     break;
                 case "3":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Starting Exercise 3");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
-                    WorkingWithText_Exercises_ProceduralProgrammingStyle.Exercise3();
+                    WorkingWithFiles_Exercises.Exercise3();
                     break;
                 case "4":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Starting Exercise 4");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
-                    WorkingWithText_Exercises_ProceduralProgrammingStyle.Exercise4();
+                    WorkingWithFiles_Exercises.Exercise4();
                     break;
                 case "5":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Starting Exercise 5");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
-                    WorkingWithText_Exercises_ProceduralProgrammingStyle.Exercise5();
+                    WorkingWithFiles_Exercises.Exercise5();
                     break;
                 case "Exit":
                 case "exit":
@@ -63,6 +62,6 @@ public class WorkingWithFiles_MenuLoop
                     loopButton = false;
                     break;
             }
-        }*/
+        }
     }
 }

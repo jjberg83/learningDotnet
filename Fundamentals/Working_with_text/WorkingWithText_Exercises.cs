@@ -71,6 +71,7 @@ public class WorkingWithText_Exercises
         catch(Exception ex)
         {
             Console.WriteLine("Invalid format");
+            Console.WriteLine($"{ex.Message}");
         }
     }
     // 4- Write a program and ask the user to enter a few words separated by a space. 
@@ -102,7 +103,7 @@ public class WorkingWithText_Exercises
     public static void Exercise5()
     {
         Console.WriteLine("Enter an English word:");
-        string userInput = Console.ReadLine().Trim().ToLower();
+        string? userInput = Console.ReadLine().Trim().ToLower();
         int count = 0;
         List<char> vowels = new List<char>() {'a', 'e','i','o','u'};
         foreach(char letter in userInput)
