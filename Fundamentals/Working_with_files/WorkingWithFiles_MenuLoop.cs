@@ -24,6 +24,13 @@ public class WorkingWithFiles_MenuLoop
                     Console.WriteLine();
                     WorkingWithFiles_Exercises.Exercise1();
                     break;
+                case "1":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("Starting Exercise 1");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    WorkingWithFiles_Exercises.Exercise1();
+                    break;
                 case "2":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Starting Exercise 2");
