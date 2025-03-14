@@ -3,5 +3,18 @@ using Fundamentals.Working_with_files;
 
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, Fundamentals!");
-//WorkingWithText_MenuLoop.Run();
-WorkingWithFiles_MenuLoop.Run();
+
+string? startFile = Environment.GetEnvironmentVariable("startfile");
+
+switch (startFile)
+{
+    case "Working_with_files":
+        WorkingWithFiles_MenuLoop.Run();
+        break;
+    case "Working_with_text":
+        WorkingWithText_MenuLoop.Run();
+        break;
+    default:
+        Console.WriteLine("No such directory");
+        break;
+}
