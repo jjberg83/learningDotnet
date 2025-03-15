@@ -22,7 +22,7 @@ public class WorkingWithFiles_MenuLoop
                     Console.WriteLine("Starting FileAndFileInfo.cs");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
-                    WorkingWithFiles_Exercises.Exercise1();
+                    FileAndFileInfo.Run();
                     break;
                 case "1":
                     Console.WriteLine("-----------------");
