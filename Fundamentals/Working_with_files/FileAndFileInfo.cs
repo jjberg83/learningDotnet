@@ -30,11 +30,17 @@ public class FileAndFileInfo
 
         if (copy.Exists)
         {
-            Thread.Sleep(3000);
-            copy.Delete();
+            Console.WriteLine("Kopi skal eksistere");
+            // Console.WriteLine("Kopi slettes...");
+            // Thread.Sleep(3000);
+            // copy.Delete();
         }
 
-        FileInfo fileToLoadTextFrom = new FileInfo(root + "joshWaitzkin.txt"); 
-        System.IO.FileStream joshWaitzkinQuote = fileToLoadTextFrom.OpenRead(); // Han sa denne var litt kompleks, og han har rett....
+        // FileInfo fileToLoadTextFrom = new FileInfo(root + "joshWaitzkin.txt"); 
+        // System.IO.FileStream joshWaitzkinQuote = fileToLoadTextFrom.OpenRead(); // Han sa denne var litt kompleks, og han har rett....
+
+        string joshWaitzkinQuote = File.ReadAllText(root + "joshWaitzkin.txt"); // Laster det bare inn i variabelen
+        Console.WriteLine(joshWaitzkinQuote);
+        Console.WriteLine();
     }
 }
