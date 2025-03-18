@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fundamentals", "Fundamental
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intermediate", "Intermediate\Intermediate.csproj", "{E859E395-5224-4AC3-92F9-F5C2C7E915B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdabitChallenges", "EdabitChallenges\EdabitChallenges.csproj", "{84158D94-F0BB-4DE2-88D3-8276D11BF308}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{E859E395-5224-4AC3-92F9-F5C2C7E915B7}.Release|x64.Build.0 = Release|Any CPU
 		{E859E395-5224-4AC3-92F9-F5C2C7E915B7}.Release|x86.ActiveCfg = Release|Any CPU
 		{E859E395-5224-4AC3-92F9-F5C2C7E915B7}.Release|x86.Build.0 = Release|Any CPU
+		{84158D94-F0BB-4DE2-88D3-8276D11BF308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84158D94-F0BB-4DE2-88D3-8276D11BF308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84158D94-F0BB-4DE2-88D3-8276D11BF308}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{84158D94-F0BB-4DE2-88D3-8276D11BF308}.Debug|x64.Build.0 = Debug|Any CPU
+		{84158D94-F0BB-4DE2-88D3-8276D11BF308}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{84158D94-F0BB-4DE2-88D3-8276D11BF308}.Debug|x86.Build.0 = Debug|Any CPU
+		{84158D94-F0BB-4DE2-88D3-8276D11BF308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84158D94-F0BB-4DE2-88D3-8276D11BF308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84158D94-F0BB-4DE2-88D3-8276D11BF308}.Release|x64.ActiveCfg = Release|Any CPU
+		{84158D94-F0BB-4DE2-88D3-8276D11BF308}.Release|x64.Build.0 = Release|Any CPU
+		{84158D94-F0BB-4DE2-88D3-8276D11BF308}.Release|x86.ActiveCfg = Release|Any CPU
+		{84158D94-F0BB-4DE2-88D3-8276D11BF308}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
