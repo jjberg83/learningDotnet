@@ -8,6 +8,9 @@ switch (userInput)
     case "Stuttering":
         Challenges.Stuttering();
         break;
+    case "Syllables":
+        Challenges.Syllables();
+        break;
     default:
         Console.WriteLine("No such directory");
         break;

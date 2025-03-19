@@ -37,12 +37,12 @@ public static class Challenges
     // NumberSyllables("mon-u-men-tal") ➞ 4
     // NumberSyllables("on-o-mat-o-poe-ia") ➞ 6
 
-    public static void Syllables
+    public static void Syllables()
     {
         string userInput = getUserInput();
         if(userInput.Length > 0)
         {
-            
+            Console.WriteLine($"There are {userInput.Split("-").Length} syllables in the word you entered");
         }
     }
 
