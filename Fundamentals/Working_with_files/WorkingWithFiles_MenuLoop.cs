@@ -31,6 +31,13 @@ public class WorkingWithFiles_MenuLoop
                     Console.WriteLine();
                     DirectoryAndDirectoryInfo.Run();
                     break;
+                case "Path":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("Starting Path.cs");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    PathI.Run();
+                    break;
                 case "1":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Starting Exercise 1");
