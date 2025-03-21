@@ -24,7 +24,11 @@ public class PathI
         Console.WriteLine("Tøffere måter å få ut slik info på");
         Console.WriteLine("##########################");
 
-        string extension4 = Path.GetExtension(filePath);
+        Console.WriteLine($"Path.GetExtension(filePath) -> {Path.GetExtension(filePath)}");
+        Console.WriteLine($"Path.GetFileName(filePath) -> {Path.GetFileName(filePath)}");
+        Console.WriteLine($"Path.GetFileNameWithoutExtension(filePath) -> {Path.GetFileNameWithoutExtension(filePath)}");
+        Console.WriteLine($"Path.GetDirectoryName(filePath) -> {Path.GetDirectoryName(filePath)}");
+        Console.WriteLine($"Path.GetPathRoot(filePath) -> {Path.GetPathRoot(filePath)}");
 
 
     }
