@@ -52,34 +52,13 @@ public class WorkingWithFiles_MenuLoop
                     Console.WriteLine();
                     WorkingWithFiles_Exercises.Exercise2();
                     break;
-                case "3":
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine("Starting Exercise 3");
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine();
-                    WorkingWithFiles_Exercises.Exercise3();
-                    break;
-                case "4":
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine("Starting Exercise 4");
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine();
-                    WorkingWithFiles_Exercises.Exercise4();
-                    break;
-                case "5":
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine("Starting Exercise 5");
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine();
-                    WorkingWithFiles_Exercises.Exercise5();
-                    break;
                 case "Exit":
                 case "exit":
                     Console.WriteLine("Stopping program...");
                     loopButton = false;
                     break;
                 default:
-                    Console.WriteLine("You did not write a number between 1-5. Program stopping...");
+                    Console.WriteLine("You did not write a file name or a number between 1-5. Program stopping...");
                     loopButton = false;
                     break;
             }
