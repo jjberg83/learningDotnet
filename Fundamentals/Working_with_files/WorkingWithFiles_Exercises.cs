@@ -18,19 +18,28 @@ public class WorkingWithFiles_Exercises
         string textFromFile = File.ReadAllText(filePath);
         string[] textFromFileInArray = textFromFile.Split(" ");
         int charactersInLongestWord = 0;
-        Dictionary<int, string[]> wordLengths = new Dictionary<int, string[]>();
-
+        
+        Dictionary<int, List<string>> wordLengths = new Dictionary<int, List<string>>();
         foreach(string word in textFromFileInArray)
         {
+            Console.WriteLine("--------------------");
             Console.WriteLine($"{word} -> {word.Length} characters");
-            //wordLengths.Add()
-            if (word.Length > charactersInLongestWord)
+            if(word.Length > charactersInLongestWord)
             {
                 charactersInLongestWord = word.Length;
             }
+            if(!wordLengths.ContainsKey(word.Length))
+            {
+                wordLengths[word.Length] = new List<string>();
+            }
+            wordLengths[word.Length].Add(word);
         }
 
-        Console.WriteLine($"The longest word in the file was {charactersInLongestWord} characters long");
+        Console.WriteLine($"The longest word(s) contain(s) {charactersInLongestWord} characters:");
+        foreach(string word in wordLengths[charactersInLongestWord])
+        {
+            Console.WriteLine(word);
+        }
     }
 }
 
