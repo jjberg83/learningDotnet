@@ -1,0 +1,16 @@
+"version": "0.2.0",
+"configurations": [
+    {
+        "name": "Launch .NET Core Console App",
+        "type": "coreclr",
+        "request": "launch",
+        "program": "${workspaceFolder}/bin/Debug/net5.0/YourAppName.dll", // Change 'YourAppName.dll' to your actual DLL name
+        "args": [],
+        "env": {
+            "startfile": "Working_with_text" // Set the environment variable here
+        },
+        "cwd": "${workspaceFolder}",
+        "stopAtEntry": false
+    }
+]
+}

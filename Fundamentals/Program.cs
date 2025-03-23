@@ -2,9 +2,10 @@
 using Fundamentals.Working_with_files;
 
 // See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, Fundamentals!");
+Console.WriteLine("What chapter do you want to open?");
 
-string? startFile = Environment.GetEnvironmentVariable("startfile");
+// string? startFile = Environment.GetEnvironmentVariable("startfile");
+string? startFile = Console.ReadLine();
 
 switch (startFile)
 {
