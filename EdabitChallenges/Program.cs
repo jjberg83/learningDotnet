@@ -1,6 +1,7 @@
 ﻿using EdabitChallenges;
 
 Console.WriteLine("What challenge do you want to run?");
+Console.WriteLine("Edabit program");
 string? userInput = Console.ReadLine();
 
 switch (userInput)

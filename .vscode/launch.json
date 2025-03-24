@@ -1,16 +1,40 @@
-"version": "0.2.0",
-"configurations": [
-    {
-        "name": "Launch .NET Core Console App",
-        "type": "coreclr",
-        "request": "launch",
-        "program": "${workspaceFolder}/bin/Debug/net5.0/YourAppName.dll", // Change 'YourAppName.dll' to your actual DLL name
-        "args": [],
-        "env": {
-            "startfile": "Working_with_text" // Set the environment variable here
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // Use IntelliSense to find out which attributes exist for C# debugging
+            // Use hover for the description of the existing attributes
+            // For further information visit https://github.com/dotnet/vscode-csharp/blob/main/debugger-launchjson.md
+            "name": "Fundamentals",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/Fundamentals/bin/Debug/net9.0/Fundamentals.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Fundamentals",
+            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "env": {
+                "startfile": "Working_with_files"
+            }
         },
-        "cwd": "${workspaceFolder}",
-        "stopAtEntry": false
-    }
-]
+        {
+            "name": "Run EdabitChallenges",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/EdabitChallenges/bin/Debug/net9.0/EdabitChallenges.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/EdabitChallenges",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
 }
