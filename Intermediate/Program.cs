@@ -1,5 +1,5 @@
 ﻿using Intermediate.Classes;
 
 Console.WriteLine("Hello, Intermediate!");
-int tall = "fire";
+string? userInput = Console.ReadLine();
 Classes_ExerciseLoop.Run();
