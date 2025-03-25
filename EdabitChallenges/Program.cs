@@ -12,6 +12,9 @@ switch (userInput)
     case "Syllables":
         Challenges.Syllables();
         break;
+    case "ArrayOfMultiples":
+        int[] multiplesOfX = Challenges.ArrayOfMultiples(7,5);
+        break;
     default:
         Console.WriteLine("No such directory");
         break;

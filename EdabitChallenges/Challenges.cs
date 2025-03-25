@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace EdabitChallenges;
 
 public static class Challenges
@@ -44,6 +46,31 @@ public static class Challenges
         {
             Console.WriteLine($"There are {userInput.Split("-").Length} syllables in the word you entered");
         }
+    }
+
+    // LINK
+    // https://edabit.com/challenge/2QvnWexKoLfcJkSsc
+
+    // Create a function that takes two numbers as arguments (num, length) and returns 
+    // an array of multiples of num until the array length reaches length.
+
+    // EXAMPLES
+
+    // ArrayOfMultiples(7, 5) ➞ [7, 14, 21, 28, 35]
+    // ArrayOfMultiples(12, 10) ➞ [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+    // ArrayOfMultiples(17, 6) ➞ [17, 34, 51, 68, 85, 102]
+
+    // Notice that num is also included in the returned array.
+
+
+    public static int[] ArrayOfMultiples(int num, int length)
+    {
+        int[] multiplesOfX = new int[length];
+        for(int i = 1; i < length; i++)
+        {
+            multiplesOfX[i-1] = num * i;
+        }
+        return multiplesOfX;
     }
 
     public static string getUserInput()
