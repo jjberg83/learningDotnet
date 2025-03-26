@@ -2,6 +2,11 @@
     "version": "0.2.0",
     "configurations": [
         {
+            // For å legge til testefunksjonalitet for nytt prosjekt, naviger i terminalen inn til 
+            // prosjektets root folder (for eksempel Advanced). Trykk så på CMD + SHIFT + P og søk etter
+            // .NET: Generate Assets for Build and Debug. Da vil en ny kodesnippet dannes under, inni
+            // sine egne {barteparenteser}. Husk å endre attributten console til  "console": "integratedTerminal".
+
             // Use IntelliSense to find out which attributes exist for C# debugging
             // Use hover for the description of the existing attributes
             // For further information visit https://github.com/dotnet/vscode-csharp/blob/main/debugger-launchjson.md
@@ -14,7 +19,7 @@
             "args": [],
             "cwd": "${workspaceFolder}/Fundamentals",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopAtEntry": false,
             "env": {
                 "startfile": "Working_with_files"
