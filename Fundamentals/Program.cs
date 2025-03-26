@@ -2,10 +2,17 @@
 using Fundamentals.Working_with_files;
 
 // See https://aka.ms/new-console-template for more information
+
 Console.WriteLine("What chapter do you want to open?");
 
-string? startFile = Environment.GetEnvironmentVariable("startfile");
-//string? startFile = Console.ReadLine();
+string? startFile = args.Length > 0 ? args[0] : null;
+// kjør med dotnet run Working_with_files
+
+if(String.IsNullOrWhiteSpace(startFile))
+{
+    Console.WriteLine("You didn't chose a chapter, program will stop");
+    return;
+}
 
 switch (startFile)
 {
