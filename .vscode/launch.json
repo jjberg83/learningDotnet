@@ -16,14 +16,11 @@
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/Fundamentals/bin/Debug/net9.0/Fundamentals.dll",
-            "args": [],
+            "args": ["Working_with_text"], // Må inn og endre denne når jeg vil teste et annen mappe
             "cwd": "${workspaceFolder}/Fundamentals",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "integratedTerminal",
-            "stopAtEntry": false,
-            "env": {
-                "startfile": "Working_with_files"
-            }
+            "stopAtEntry": false
         },
         {
             "name": "EdabitChallenges",
