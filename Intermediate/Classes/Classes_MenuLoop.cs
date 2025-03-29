@@ -4,7 +4,6 @@ public class Classes_MenuLoop
 {
     public static void Run()
     {
-        
         bool loopButton = true;
         while (loopButton)
         {
@@ -23,6 +22,13 @@ public class Classes_MenuLoop
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
                     IntroductionToClasses.Run();
+                    break;
+                case "Constructors":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("Starting Constructors.cs");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    Constructors.Run();
                     break;
                 case "exit":
                     Console.WriteLine("Stopping program...");
