@@ -16,6 +16,13 @@ public class Classes_MenuLoop
             
             switch(userInput)
             {
+                case "ObjectInitializers":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("Starting ObjectInitializers.cs");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    ObjectInitializers.Run();
+                    break;
                 case "IntroductionToClasses":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Starting IntroductionToClasses.cs");
