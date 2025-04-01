@@ -6,13 +6,21 @@ string? userInput = Console.ReadLine();
 
 switch (userInput)
 {
-    case "ReverseCase":
-        string test1 = Challenges.ReverseCase("Happy Birthday");
-        string test2 = Challenges.ReverseCase("MANY THANKS");
-        string test3 = Challenges.ReverseCase("sPoNtAnEoUs");
+    case "FormatDate":
+        string test1 = Challenges.FormatDate("11/12/2019");
+        string test2 = Challenges.FormatDate("12/31/2019");
+        string test3 = Challenges.FormatDate("01/15/2019");
         Console.WriteLine(test1);
         Console.WriteLine(test2);
         Console.WriteLine(test3);
+        break;
+    case "ReverseCase":
+        string test4 = Challenges.ReverseCase("Happy Birthday");
+        string test5 = Challenges.ReverseCase("MANY THANKS");
+        string test6 = Challenges.ReverseCase("sPoNtAnEoUs");
+        Console.WriteLine(test4);
+        Console.WriteLine(test5);
+        Console.WriteLine(test6);
         break;
     case "Stuttering":
         Challenges.Stuttering();

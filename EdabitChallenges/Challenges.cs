@@ -5,6 +5,21 @@ namespace EdabitChallenges;
 public static class Challenges
 {
     // LINK
+    // https://edabit.com/challenge/mcdSLSmXjYMzEmug2
+    // Create a function that converts a date formatted as MM/DD/YYYY to YYYYDDMM.
+
+    // FormatDate("11/12/2019") ➞ "20191211"
+    // FormatDate("12/31/2019") ➞ "20193112"
+    // FormatDate("01/15/2019") ➞ "20191501"
+
+    public static string FormatDate(string date)
+    {
+        string[] dateSplitted = date.Split("/");
+        return $"{dateSplitted[2]}{dateSplitted[1]}{dateSplitted[0]}";
+    }
+
+
+    // LINK
     // https://edabit.com/challenge/99oN5igrbXddAjHEL
     // Given a string, create a function to reverse the case. 
     // All lower-cased letters should be upper-cased, and vice versa.
