@@ -5,6 +5,34 @@ namespace EdabitChallenges;
 public static class Challenges
 {
     // LINK
+    // https://edabit.com/challenge/99oN5igrbXddAjHEL
+    // Given a string, create a function to reverse the case. 
+    // All lower-cased letters should be upper-cased, and vice versa.
+
+    // Examples
+    // ReverseCase("Happy Birthday") ➞ "hAPPY bIRTHDAY"
+    // ReverseCase("MANY THANKS") ➞ "many thanks"
+    // ReverseCase("sPoNtAnEoUs") ➞ "SpOnTaNeOuS"
+
+    public static string ReverseCase(string str)
+    {   
+        string reverseCase = "";
+        foreach(char letter in str)
+        {
+            if(Char.IsUpper(letter))
+            {
+                reverseCase += Char.ToLower(letter);
+            }
+            else
+            {
+                reverseCase += Char.ToUpper(letter);
+            }
+        }
+        return reverseCase;
+    }
+
+
+    // LINK
     // https://edabit.com/challenge/Ty9u8onXNjDPdQGMo
     // Write a function that stutters a word as if someone is struggling to read it. 
     // The first two letters are repeated twice with an ellipsis ... and space after each, 
