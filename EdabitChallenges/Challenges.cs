@@ -1,9 +1,35 @@
 using System.Globalization;
+using System.Linq;
 
 namespace EdabitChallenges;
 
 public static class Challenges
 {
+    // LINK
+    // https://edabit.com/challenge/YGhgctqPsKQxQQCFS
+    // Write a function that takes an integer i and returns a string with the integer 
+    // backwards followed by the original integer.
+
+    // To illustrate:
+
+    // "123"
+    // We reverse "123" to get "321" and then add "123" to the end, resulting in "321123".
+
+    // Examples
+    // ReverseAndNot(123) ➞ "321123"
+    // ReverseAndNot(152) ➞ "251152"
+    // ReverseAndNot(123456789) ➞ "987654321123456789"
+
+    // Notes
+    // i is a non-negative integer.
+    // Bonus: By using System.Linq this should be completed in one line of code.
+
+    public static string ReverseAndNot(int i)
+    {
+        return Convert.ToString(i).Select(x => x + iString[index - 1]);
+    }
+
+
     // LINK
     // https://edabit.com/challenge/mcdSLSmXjYMzEmug2
     // Create a function that converts a date formatted as MM/DD/YYYY to YYYYDDMM.

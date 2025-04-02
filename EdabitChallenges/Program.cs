@@ -6,6 +6,14 @@ string? userInput = Console.ReadLine();
 
 switch (userInput)
 {
+    case "ReverseAndNot":
+        string test7 = Challenges.ReverseAndNot(123);
+        string test8 = Challenges.ReverseAndNot(152);
+        string test9 = Challenges.ReverseAndNot(123456789);
+        Console.WriteLine(test7);
+        Console.WriteLine(test8);
+        Console.WriteLine(test9);
+        break;
     case "FormatDate":
         string test1 = Challenges.FormatDate("11/12/2019");
         string test2 = Challenges.FormatDate("12/31/2019");
