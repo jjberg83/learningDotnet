@@ -14,7 +14,7 @@ public static class Challenges
 
     public static string FormatDate(string date)
     {
-        string[] dateSplitted = date.Split("/");
+        string[] dateSplitted = date.Split('/');
         return $"{dateSplitted[2]}{dateSplitted[1]}{dateSplitted[0]}";
     }
 
