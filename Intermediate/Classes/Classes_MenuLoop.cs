@@ -1,5 +1,4 @@
 namespace Intermediate.Classes;
-
 public class Classes_MenuLoop
 {
     public static void Run()
@@ -16,6 +15,13 @@ public class Classes_MenuLoop
             
             switch(userInput)
             {
+                case "Methods":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("Methods");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    Methods.Run();
+                    break;
                 case "ObjectInitializers":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Starting ObjectInitializers.cs");
