@@ -41,6 +41,19 @@ public static class RefModifier
         b = "Jørund";
     }
 }
+
+public class Point
+{
+    public int X;
+    public int Y;
+
+    public Point()
+    {
+        
+    }
+
+
+}
 public static class Methods
 {
     public static void Run()
@@ -78,6 +91,9 @@ public static class Methods
         // Men den returnerer fortsatt ingenting.
 
         // Her er eksemple der man ikke initialiserer variabelen på forhånd
+        // Dette er altså et alternativ til følgende kode
+        // int a = 2;
+        // string b = "Jørund";
         RefModifier.AddPlus(out int d, out string u);
         Console.WriteLine($"d: {d}");
         
@@ -86,6 +102,11 @@ public static class Methods
         Console.WriteLine($"j: {j}");
         Console.WriteLine($"u: {u}");
 
+        var firstPoint = new Point 
+        {
+            X= 2,
+            Y = 3
+        };
 
     }
 }
