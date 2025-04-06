@@ -1,6 +1,6 @@
 namespace Intermediate.Classes;
 
-public static class Calculator
+public class Calculator
 {
     // Uten params kan man ikke kalle på metoden som man gjør i variabelen add5 og add6
     // public static int Add(int[] numbers)
