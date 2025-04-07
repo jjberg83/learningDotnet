@@ -5,7 +5,8 @@ public class Customer
     public int Id;
     public string? Name;
 
-    public List<Order> Orders = new(); // Listen kan initialiseres herfra også. Spesielt siden den ikke får parametere fra utsiden.
+    // readonly gjør at listen kun kan initialiseres en gang, nemlig her eller i constructoren
+    readonly public List<Order> Orders = new(); // Listen kan initialiseres herfra også. Spesielt siden den ikke får parametere fra utsiden.
 
     // lager nye blanke constructors med shortcuten "ctor" (code snippet)
     public Customer()
@@ -26,6 +27,6 @@ public class Customer
 
     public void Promote()
     {
-        Orders = new List<Order>();
+        // Orders = new List<Order>();
     }
 }

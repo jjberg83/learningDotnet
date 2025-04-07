@@ -12,6 +12,8 @@ public class Fields
         jørund.Promote();
         jørund.Orders.Add(order2);
         jørund.Orders.Add(order3);
-        // Kjører man koden over i debug mode ser man at Orders listen kun inneholder 2 ordre.
+        // Kjører man koden over i debug mode ser man at Orders listen kun inneholder 2 ordre
+        // fordi Promote metoden lager en ny liste. Med readonly foran Orders fieldet i 
+        // Customer klassen, får ikke Promote metoden lov til dette.
     }
 }
