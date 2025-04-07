@@ -15,6 +15,13 @@ public class Classes_MenuLoop
             
             switch(userInput)
             {
+                case "Fields":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("Fields");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    Fields.Run();
+                    break;
                 case "Methods":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Methods");

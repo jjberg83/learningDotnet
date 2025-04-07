@@ -26,7 +26,8 @@ public static class Challenges
 
     public static string ReverseAndNot(int i)
     {
-        return Convert.ToString(i).Select(x => x + iString[index - 1]);
+        // return Convert.ToString(i).Select(x => x + iString[index - 1]);
+        return "Ikke implementert ReverseAndNot metoden";
     }
 
 
