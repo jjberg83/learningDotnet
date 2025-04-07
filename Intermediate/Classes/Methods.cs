@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Runtime.InteropServices;
 
 namespace Intermediate.Classes;
@@ -70,6 +71,26 @@ public static class Methods
         // hvis vi ikke tar høyde for det i metoden selvsagt
         secondPoint.Move(null);
 
+        // Denne feiler
+        // int number = int.Parse("abc");
+
+        // Bedre å gjøre det slik
+        int number;
+        bool conversionStatus = int.TryParse("abc", out number);
+        if(conversionStatus)
+            Console.WriteLine($"Conversion OK, number is {number}");
+        else
+            Console.WriteLine("Conversion failed");
+
+        // // Det på linjene over er likt følgende:
+        // try
+        // {
+        //     int num = int.Parse("abc");
+        // }
+        // catch (Exception e)
+        // {
+        //     Console.WriteLine("Conversion failed");
+        // }
 
     }
 }
