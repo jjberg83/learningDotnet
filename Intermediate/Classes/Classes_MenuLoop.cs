@@ -15,6 +15,13 @@ public class Classes_MenuLoop
             
             switch(userInput)
             {
+                case "Properties":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("Properties");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    Properties.Run();
+                    break;
                 case "AccessModifier":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("AccessModifier");
