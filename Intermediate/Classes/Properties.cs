@@ -28,6 +28,21 @@ public class Properties
         // Properties.exe. Antageligvis dll fil for meg
         // Han skriver så "ildasm Intermediate.exe" (ildasm er intermediate language disasembler)
 
+        // Jeg installerte ilspycmd i stedet for (for å se IL koden)
+        // Gå til bin > Debug > net.9.0, og skriv kommandoen
+        // ilspycmd Intermediate.dll
+        // Virket ikke slik han viste. Poenget var at i IL koden så man at en default constructor
+        // ble skapt, og at et privat Birthday field, med en egen getter og setter også
+        // ble skapt, selv om vi bare skrev en public Property i PersonPrivate klassen.
+
+        var jørund = new PersonPrivat();
+        Console.WriteLine(jørund.BirthDate);
+        Console.WriteLine(jørund.Age);
+        jørund.BirthDate = new DateTime(1983, 07, 02);
+        Console.WriteLine(jørund.BirthDate);
+        Console.WriteLine(jørund.Age);
+
+
         
     }
 }

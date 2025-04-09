@@ -25,4 +25,18 @@ public class PersonPrivat
     // Og da trenger man ikke en gang å definere den private helt øverst!
     // Den skapes automatisk.
     public DateTime BirthDate { get; set; }
+
+    // Her skaper vi en ny property, denne gangen med logikk
+    // Under panseret blir altså et privat felt opprettet
+    // Trenger ingen setter, fordi alderen blir satt i getteren
+    // Tøft at den er dynamisk
+    public int Age 
+    {
+        get
+        {
+            TimeSpan timeSinceBirth = DateTime.Today - BirthDate;
+            int years = Convert.ToInt32(timeSinceBirth.Days / 365);
+            return years;
+        }
+    }
 }
