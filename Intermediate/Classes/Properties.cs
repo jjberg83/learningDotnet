@@ -12,11 +12,8 @@ public class Properties
         // person1.SetBirthdate(bursdag);
         // Console.WriteLine(person1.GetBirthdate()); 
 
-        // Endres til
-        var person1 = new PersonPrivat();
-        DateTime bursdag = new DateTime(1983, 07, 02);
-        Console.WriteLine(person1.BirthDate); 
-        person1.BirthDate = bursdag;
+        // Endres til ()
+        var person1 = new PersonPrivat(new DateTime(1983, 07, 02));
         Console.WriteLine(person1.BirthDate); 
 
         // Han anbefaler Productivity Power Tools 
@@ -35,13 +32,15 @@ public class Properties
         // ble skapt, og at et privat Birthday field, med en egen getter og setter også
         // ble skapt, selv om vi bare skrev en public Property i PersonPrivate klassen.
 
-        var jørund = new PersonPrivat();
+        var jørund = new PersonPrivat(new DateTime(1983, 07, 02));
         Console.WriteLine(jørund.BirthDate);
         Console.WriteLine(jørund.Age);
-        jørund.BirthDate = new DateTime(1983, 07, 02);
-        Console.WriteLine(jørund.BirthDate);
-        Console.WriteLine(jørund.Age);
-
+        Console.WriteLine(jørund.Name);
+        Console.WriteLine(jørund.UserName);
+        jørund.Name = "Jørund Jenssen Berg";
+        jørund.UserName = "rrttløljf";
+        Console.WriteLine(jørund.Name);
+        Console.WriteLine(jørund.UserName);
 
         
     }
