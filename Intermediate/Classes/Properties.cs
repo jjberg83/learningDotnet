@@ -12,7 +12,15 @@ public class Properties
         // person1.SetBirthdate(bursdag);
         // Console.WriteLine(person1.GetBirthdate()); 
 
-        // Endres til ()
+        // Kode som må til når man har en default property (ved å bruke "prop" code snippeten)
+        // var lori = new PersonPrivat();
+        // DateTime bursdag = new DateTime(1985, 04, 19);
+        // Console.WriteLine(lori.BirthDate); 
+        // lori.BirthDate = bursdag;
+        // Console.WriteLine(lori.BirthDate); 
+
+        // Kode som må til når man har property med private foran setteren
+        // BirthDate kan da bare defineres i constructoren
         var person1 = new PersonPrivat(new DateTime(1983, 07, 02));
         Console.WriteLine(person1.BirthDate); 
 

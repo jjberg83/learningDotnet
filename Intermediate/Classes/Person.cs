@@ -24,10 +24,14 @@ public class PersonPrivat
     // Det har ingen logikk, kan derfor forkortes enda mer til...
     // Og da trenger man ikke en gang å definere den private helt øverst!
     // Den skapes automatisk.
+
+    // public DateTime BirthDate { get; set; }
+
     // Ved å sette private foran set, sier man at Birtday kun kan defineres i 
     // konstruktøren, og aldri endres deretter. Før dette trengte man ikke å 
     // skrive konstruktøren eskplisitt, siden en blank konstruktør ble skapt
     // automatisk på baksiden. Nå må vi, fordi vi har et argument.
+
     public DateTime BirthDate { get; private set; }
 
     // Her skaper vi en ny property, denne gangen med logikk
