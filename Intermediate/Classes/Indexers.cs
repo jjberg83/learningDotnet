@@ -30,7 +30,7 @@ public class Indexers
             Console.WriteLine(element.ToString()); 
         }
 
-        benjamin.CertificationExpiry = new DateTime(2026, 15, 02);
-        Console.WriteLine($"Benjamins certification will expire on {benjamin.CertificationExpiry.ToString()}");
+        benjamin.CertificationExpiry = new DateTime(2026, 02, 15);
+        Console.WriteLine($"Benjamins certification will expire on {benjamin.CertificationExpiry}");
     }
 }
