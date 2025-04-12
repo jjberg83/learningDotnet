@@ -15,6 +15,13 @@ public class Classes_MenuLoop
             
             switch(userInput)
             {
+                case "Exercise1":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("Exercise 1");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    Exercise1.Run();
+                    break;
                 case "Indexers":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Indexers");
