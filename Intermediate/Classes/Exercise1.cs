@@ -38,7 +38,9 @@ public class Exercise1
                     break;
                 case "SLUTT":
                     fortsettTidtakning = false;
+                    stoppeKlokke.Slutt();
                     Console.WriteLine("Stoppeklokkeprogram avsluttes...");
+                    Console.WriteLine();
                     break;
                 default:
                     Console.WriteLine("Du har ikke skrevet enten START, STOPP eller SLUTT");

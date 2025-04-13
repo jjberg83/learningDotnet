@@ -55,13 +55,32 @@ public class Stopwatch
         StopTimes.Add(stoppTid);
         TimeSpan varighet = stoppTid - StartTimes[StartTimes.Count - 1];
         Durations.Add(varighet);
-        var minutter = varighet.Minutes;
+        int minutter = varighet.Minutes;
         var sekunder = Math.Round(varighet.TotalSeconds, 2, MidpointRounding.AwayFromZero);
         
-        Console.WriteLine($"sekunder: {sekunder}");
-        Console.WriteLine($"varighet: {varighet}");
+        if(minutter >= 1);
+            Console.WriteLine($"Minutter: {minutter}");
+
+        Console.WriteLine($"Sekunder: {sekunder}");
         Console.WriteLine();
         Console.WriteLine("-------------------------");
+        Console.WriteLine();
+    }
+
+    public void Slutt()
+    {
+        if(Durations.Count == 0)
+            return;
+
+        Console.WriteLine();
+        Console.WriteLine("------------------");
+        Console.WriteLine("Alle rundetidene:");
+        Console.WriteLine("------------------");
+
+        for( int i = 0; i < Durations.Count; i++)
+        {
+            Console.WriteLine($"Runde {i+1}: {Math.Round(Durations[i].TotalSeconds, 2, MidpointRounding.AwayFromZero)}");
+        }
         Console.WriteLine();
     }
 }
