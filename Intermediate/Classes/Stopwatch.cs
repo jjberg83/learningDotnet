@@ -32,6 +32,9 @@ public class Stopwatch
         // Finn ut tiden akkurat når start metoden startes, og legg denne til i StartTimes
         if(StartTimes.Count != StopTimes.Count)
         {
+            // Her skulle vi egentlig ha lagt inn exceptionen under. Men ved å gjøre det på denne måten
+            // avsluttes jo programmet. Så jeg droppet det, og ga heller brukeren en ny sjanse.
+            // throw new InvalidOperationException("Du kan ikke starte en ny runde før du har avsluttet forrige. Husk å skriv STOPP i terminal vinduet.");
             Console.WriteLine("Du kan ikke starte en ny runde før du har avsluttet forrige. Husk å skriv STOPP i terminal vinduet.");
             return;
         }
@@ -56,9 +59,9 @@ public class Stopwatch
         TimeSpan varighet = stoppTid - StartTimes[StartTimes.Count - 1];
         Durations.Add(varighet);
         int minutter = varighet.Minutes;
-        var sekunder = Math.Round(varighet.TotalSeconds, 2, MidpointRounding.AwayFromZero);
+        var sekunder = Math.Round(varighet.TotalSeconds - (minutter * 60), 2, MidpointRounding.AwayFromZero);
         
-        if(minutter >= 1);
+        if(minutter >= 1)
             Console.WriteLine($"Minutter: {minutter}");
 
         Console.WriteLine($"Sekunder: {sekunder}");
@@ -77,9 +80,14 @@ public class Stopwatch
         Console.WriteLine("Alle rundetidene:");
         Console.WriteLine("------------------");
 
+        int minutter;
+        double sekunder;
+
         for( int i = 0; i < Durations.Count; i++)
         {
-            Console.WriteLine($"Runde {i+1}: {Math.Round(Durations[i].TotalSeconds, 2, MidpointRounding.AwayFromZero)}");
+            minutter = Durations[i].Minutes;
+            sekunder = Math.Round(Durations[i].TotalSeconds - (minutter * 60), 2, MidpointRounding.AwayFromZero);
+            Console.WriteLine($"Runde {i+1}: {minutter}:{sekunder}");
         }
         Console.WriteLine();
     }
