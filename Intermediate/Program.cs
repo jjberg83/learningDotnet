@@ -24,7 +24,7 @@ try
             return;
     }
 }
-catch
+catch(Exception e)
 {
-    Console.WriteLine("En uventet feil skjedde");
+    Console.WriteLine(e.Message);
 }

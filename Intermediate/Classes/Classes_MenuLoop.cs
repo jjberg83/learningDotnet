@@ -22,6 +22,13 @@ public class Classes_MenuLoop
                     Console.WriteLine();
                     Exercise1.Run();
                     break;
+                case "Exercise2":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("Exercise 2");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    Exercise2.Run();
+                    break;
                 case "Indexers":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Indexers");

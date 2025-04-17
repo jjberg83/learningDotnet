@@ -32,9 +32,12 @@ public class Stopwatch
         // Finn ut tiden akkurat når start metoden startes, og legg denne til i StartTimes
         if(StartTimes.Count != StopTimes.Count)
         {
-            // Her skulle vi egentlig ha lagt inn exceptionen under. Men ved å gjøre det på denne måten
-            // avsluttes jo programmet. Så jeg droppet det, og ga heller brukeren en ny sjanse.
+            // Jeg droppet Exception logikken under, fordi program da stopper og bruker får ikke ny sjans
+            // Men sikkert en best practice måte å gjøre dette på som jeg enda ikke vet om
+            // Jeg får iallefall tak i grunnen til at det feiler i Program.cs nå ved å bruke e.Message
             // throw new InvalidOperationException("Du kan ikke starte en ny runde før du har avsluttet forrige. Husk å skriv STOPP i terminal vinduet.");
+
+            // Her får bruker ny sjanse, men jeg mistenker dette ikke er en best practice
             Console.WriteLine("Du kan ikke starte en ny runde før du har avsluttet forrige. Husk å skriv STOPP i terminal vinduet.");
             return;
         }
