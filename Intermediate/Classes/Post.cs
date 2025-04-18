@@ -24,12 +24,13 @@ public class Post
     // Jeg vil at dette skal skje uten at bruker vet om det
     // og trenger å gjøre noenting som helst
     public DateTime CreationTimeStamp { get; private set; }
+    public int VoteValue { get; set; }
 
     public Post(string title, string description)
     {
         CreationTimeStamp = DateTime.Now;
 
-        // Validation of arguments
+        // Validation of arguments (exceptions håndteres i RUN() metoden for Exercise2.cs)
         if(String.IsNullOrWhiteSpace(title))
             throw new ArgumentException("Title cannot be null, empty or whitespace", nameof(title));
         if(String.IsNullOrWhiteSpace(description))
