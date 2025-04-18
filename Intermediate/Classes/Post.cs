@@ -16,19 +16,31 @@ namespace Intermediate.Classes;
     // purely behaviour (methods) providers. This is not object-oriented programming. This is
     // procedural programming. Such programs are very fragile. Making a change breaks many parts
     // of the code.
+   
+    // FORSKJELL PÅ READONLY OG PRIVATE SET (se readonly brukt på _CreationTimeStamp)
+    // readonly kan kun brukes på fields og sikrer at fieldet kun kan gis verdi her eller i konstruktøren (og aldri endres etterpå)
+    // Ved å opprette en property oppå det private fieldet, og kun lage en get metode, ingen set, 
+    // sikrer man at denne verdien aldri kan endres. Man må da eksplisitt skrive det private fieldet, slik at man 
+    // kan skrive readonly foran. Dette fieldet er jo automatisk generert og skjult når man bare bruker shortcuten
+    // med å lage en property.
+    // private set i en property gjør at koden ikke kan endres direkte i andre klasser slik MyPost.CreationTimeStamp = noe
+    // For å sette den fra andre klasser må man bruke en metode man lager inni Post klassen
 public class Post
 {
     public string Title { get; set; }
     public string Description { get; set; }
-    // private gjør at man kun kan gi en verdi i konstruktøren
-    // Jeg vil at dette skal skje uten at bruker vet om det
-    // og trenger å gjøre noenting som helst
-    public DateTime CreationTimeStamp { get; private set; }
-    public int VoteValue { get; set; }
+    private readonly DateTime _creationTimeStamp;
+    public DateTime CreationTimeStamp { 
+        get
+        {
+            return _creationTimeStamp;
+        } 
+    }
+    public int VoteValue { get; private set; }
 
     public Post(string title, string description)
     {
-        CreationTimeStamp = DateTime.Now;
+        _creationTimeStamp = DateTime.Now;
 
         // Validation of arguments (exceptions håndteres i RUN() metoden for Exercise2.cs)
         if(String.IsNullOrWhiteSpace(title))
@@ -39,6 +51,16 @@ public class Post
         Description = description;
         Title = title;
         
+    }
+
+    public void Upvote()
+    {
+        VoteValue += 1;
+    }
+
+    public void Downvote()
+    {
+        VoteValue -= 1;
     }
 
 
