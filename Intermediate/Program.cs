@@ -16,6 +16,9 @@ try
 
     switch(userInput)
     {
+        case "AssociationBetweenClasses":
+            AssociationBetweenClasses_MenuLoop.Run();
+            break;
         case "Classes":
             Classes_MenuLoop.Run();
             break;
