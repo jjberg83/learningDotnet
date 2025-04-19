@@ -17,6 +17,13 @@ public class AssociationBetweenClasses_MenuLoop
             
             switch(userInput)
             {
+                case "Composition":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("Composition");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    Composition.Run();
+                    break;
                 case "Inheritance":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Inheritance");
