@@ -4,9 +4,9 @@ public class Installer
 {
     private readonly Logger _logger;
 
-    public Installer(Logger logger)
+    public Installer()
     {
-        _logger = logger;
+        _logger = new Logger();
     }
 
     public void Install()

@@ -3,8 +3,8 @@ public class Composition
 {
     public static void Run()
     {
-        DbMigrator dbMigrator = new DbMigrator(new Logger());
-        Installer installer = new Installer(new Logger());
+        DbMigrator dbMigrator = new DbMigrator();
+        Installer installer = new Installer();
 
         // Poenger er at begge disse klassene bruker Log metoden
         // fra Logger klassen, vha composition.
@@ -13,5 +13,11 @@ public class Composition
         // er ikke parent, men det er et has-a forhold)
         dbMigrator.Migrate();
         installer.Install();
+
+        // La meg prøve å nå ikke bare metodene til Logger klassen, 
+        // men også fieldsene
+        dbMigrator.CreationTime = new DateTime(1983, 07, 02);
+
+        
     }
 }

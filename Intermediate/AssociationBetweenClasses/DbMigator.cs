@@ -2,11 +2,11 @@ namespace Intermediate.AssociationBetweenClasses;
 
 public class DbMigrator
 {
-    private readonly Logger _logger;
+    private Logger _logger;
 
-    public DbMigrator(Logger logger)
+    public DbMigrator()
     {
-        _logger = logger;
+        _logger = new Logger();
     }    
 
     public void Migrate()

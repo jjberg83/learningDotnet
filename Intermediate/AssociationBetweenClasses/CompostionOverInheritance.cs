@@ -11,7 +11,7 @@ public class CompositionOverInheritance
 
     
         Gladmat gladmat = new Gladmat(new Gathering());
-        gladmat.Gathering.
+        // gladmat.Gathering.
 
 
     }
