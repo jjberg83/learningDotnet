@@ -1,15 +1,16 @@
 namespace Intermediate.AssociationBetweenClasses;
 
-// Gladmat has-a Gathering og has-a FestivalOver18
-public class Gladmat
+public class GubbeKorFestival
 {
     private Gathering _gathering;
     private FestivalOver18 _festivalOver18;
+    private Kor _kor;
 
-    public Gladmat()
+    public GubbeKorFestival()
     {
         _gathering = new Gathering();
         _festivalOver18 = new FestivalOver18();
+        _kor = new Kor();
     }
 
     public void Beskjed(string beskjed)
@@ -20,5 +21,10 @@ public class Gladmat
     public void HilsPåBartender()
     {
         _festivalOver18.Bartender();
+    }
+
+    public void Lederinfo()
+    {
+        _kor.Sangleder();
     }
 }

@@ -14,9 +14,14 @@ public class Composition
         dbMigrator.Migrate();
         installer.Install();
 
-        // La meg prøve å nå ikke bare metodene til Logger klassen, 
-        // men også fieldsene
-        dbMigrator.CreationTime = new DateTime(1983, 07, 02);
+        // Men klarer ikke å nå fieldsene til Logger klassen
+        // Det er kun metodene
+        // Har prøvd forskjellige måter å omgås det på, men 
+        // det virker ikke helt bra. Har jo lært at en klasses
+        // fields er dens private anliggende, og det har ikke andre klasser
+        // noe med. Det er hva klassen kan gjøre som skal kunne nås av andre
+        // klasser. Ikke dens oppbygning. 
+        // dbMigrator.CreationTime = new DateTime(1983, 07, 02);
 
         
     }
