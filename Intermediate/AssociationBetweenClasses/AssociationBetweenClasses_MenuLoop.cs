@@ -17,6 +17,34 @@ public class AssociationBetweenClasses_MenuLoop
             
             switch(userInput)
             {
+                case "ValidationLogicExamples":
+                    Console.WriteLine();
+
+                    // Eksempel med auto-implemented property og egen metode for validering
+                    TreeOne treeOne = new TreeOne();
+                    // Denne feiler
+                    // treeOne.SetHeight(-1);
+                    // Mens denne er OK
+                    treeOne.SetHeight(12);
+                    Console.WriteLine($"Treets høyde er {treeOne.Height}");
+
+                    // Eksempel med auto-implemented property og validering i constructoren
+                    // Denne feiler
+                    // TreeTwo treeTwo = new TreeTwo(-1);
+                    TreeTwo treeTwo = new TreeTwo(13);
+                    Console.WriteLine($"Treets høyde er {treeTwo.Height}");
+
+                    // Eksempel med valideringen direkte i setteren
+                    // siden man endrer en av get og set (i dette tilfellet set)
+                    // må begge endres. Man kan ikke bare skrive get; eller set;
+                    TreeThree treeThree = new TreeThree();
+                    // Denne feiler
+                    // treeThree.Height = -1;
+                    treeThree.Height = 14;
+                    Console.WriteLine($"Treets høyde er {treeThree.Height}");
+
+
+                    break;
                 case "CompositionOverInheritance":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("CompositionOverInheritance");
