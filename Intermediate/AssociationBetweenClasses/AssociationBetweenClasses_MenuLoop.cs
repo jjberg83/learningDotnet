@@ -1,6 +1,4 @@
-using Intermediate.AssociationBetweenClasses;
-
-namespace Intermediate.Classes;
+namespace Intermediate.AssociationBetweenClasses;
 public class AssociationBetweenClasses_MenuLoop
 {
     public static void Run()

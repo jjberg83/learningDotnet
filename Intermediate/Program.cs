@@ -1,4 +1,6 @@
-﻿using Intermediate.Classes;
+﻿using Intermediate.AssociationBetweenClasses;
+using Intermediate.Classes;
+using Intermediate.Inheritance;
 
 // Man bruker det han kaller globale exception handlers for hele Program.cs
 // og så legger man inn exceptions der det kan krasje (i stedet for mange try/catch blokker overalt)
@@ -16,6 +18,9 @@ try
 
     switch(userInput)
     {
+        case "Inheritance":
+            Inheritance_MenuLoop.Run();
+            break;
         case "AssociationBetweenClasses":
             AssociationBetweenClasses_MenuLoop.Run();
             break;
