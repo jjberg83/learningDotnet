@@ -1,5 +1,4 @@
 namespace Intermediate.Inheritance;
-
 public class AccessModifiers
 {
     public static void Run()
@@ -18,5 +17,12 @@ public class AccessModifiers
         // public
         // private
         // protected (samme som private, men derived classes (ikke instanser men child klasser) kan også nå protected field/metode). Unngå om mulig, reduserer encapsulation.
+        // internal (tilgjenglig kun for klasser i samme assembly, og brukes på klassen, ikke dens fields og methods)
+        // protected internal (tilgjengelig kun for klasser i samme assembly, eller derived/child klasser, hold deg unna)
+
+        Customer stian = new Customer();
+        stian.Promote();
+        // CalculateRating er ikke synlig pga private, og klassen vi er i nå rekker ikke å bli avhengig av den
+        // stian.CalculateRating();
     }
 }
