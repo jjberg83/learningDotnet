@@ -1,3 +1,4 @@
+
 namespace Intermediate.Inheritance;
 public class AccessModifiers
 {
@@ -24,5 +25,8 @@ public class AccessModifiers
         stian.Promote();
         // CalculateRating er ikke synlig pga private, og klassen vi er i nå rekker ikke å bli avhengig av den
         // stian.CalculateRating();
+        GoldCustomer marit = new GoldCustomer();
+        Console.WriteLine(marit.OfferVoucher()); 
+
     }
 }
