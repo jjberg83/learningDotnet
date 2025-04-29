@@ -1,4 +1,6 @@
 
+using Fundamentals.ClassToBeUsedFromAnotherAssembly;
+
 namespace Intermediate.Inheritance;
 public class AccessModifiers
 {
@@ -21,12 +23,25 @@ public class AccessModifiers
         // internal (tilgjenglig kun for klasser i samme assembly, og brukes på klassen, ikke dens fields og methods)
         // protected internal (tilgjengelig kun for klasser i samme assembly, eller derived/child klasser, hold deg unna)
 
-        Customer stian = new Customer();
+        IntermediateCustomer stian = new IntermediateCustomer();
         stian.Promote();
         // CalculateRating er ikke synlig pga private, og klassen vi er i nå rekker ikke å bli avhengig av den
         // stian.CalculateRating();
         GoldCustomer marit = new GoldCustomer();
         Console.WriteLine(marit.OfferVoucher()); 
 
+        // Her bruker vi Customer klassen, men fra Fundamentals assembliet
+        // Søk etter Add Project Reference
+        // Eller med TErminal:
+        // cd <directory jeg vil hente noe inn til>
+        // dotnet add reference "dotnet add reference ../Fundamentals/Fundamentals.csproj"
+        // skal nå kunne se referansen i .csproj filen
+        // dotnet build
+
+        // Siden jeg nå har en referanse til Fundamentals prosjektet/assmbliet i
+        // Intermediate.csproj, kan jeg bruke en using øverst for å nå klassen under
+        // Men legger jeg inn en "internal" i FundamentalCustomer klassen, kan den 
+        // kun nås fra klasser inni Fundamentals assembliet (du kan se at den nåes fra TryOutCustomerClass.cs i Fundamentals)
+        FundamentalCustomer benjamin = new FundamentalCustomer();
     }
 }

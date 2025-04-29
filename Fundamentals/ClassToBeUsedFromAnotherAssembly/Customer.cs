@@ -1,7 +1,7 @@
-namespace Intermediate.Inheritance;
+namespace Fundamentals.ClassToBeUsedFromAnotherAssembly;
 
 
-public class IntermediateCustomer
+internal class FundamentalCustomer
 {
     public int Id { get; set; }
     public string? Name { get; set; }
@@ -12,9 +12,9 @@ public class IntermediateCustomer
         // av samme type, og kan også endre på rekkefølgen, men de uten navn må da komme først)
         int rating = CalculateRating(excludeOrders: true);
         if(rating == 0)
-            Console.WriteLine("Customer promoted to level 1");
+            Console.WriteLine("Customer(Fundamentals) promoted to level 1");
         else
-            Console.WriteLine("Customer promoted to level 2");
+            Console.WriteLine("Customer(Fundamentals) promoted to level 2");
     }
 
     // Denne metoden skal kun brukes inni klassen fordi det har med implementation details å gjøre
