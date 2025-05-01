@@ -15,6 +15,13 @@ public class Inheritance_MenuLoop
             
             switch(userInput)
             {
+                case "ConstructorsAndInheritance":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("ConstructorsAndInheritance");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    ConstructorsAndInheritance.Run();
+                    break;
                 case "AccessModifiers":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("AcessModifiers");

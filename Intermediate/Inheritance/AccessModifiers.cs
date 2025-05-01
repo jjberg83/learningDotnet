@@ -42,6 +42,6 @@ public class AccessModifiers
         // Intermediate.csproj, kan jeg bruke en using øverst for å nå klassen under
         // Men legger jeg inn en "internal" i FundamentalCustomer klassen, kan den 
         // kun nås fra klasser inni Fundamentals assembliet (du kan se at den nåes fra TryOutCustomerClass.cs i Fundamentals)
-        FundamentalCustomer benjamin = new FundamentalCustomer();
+        // FundamentalCustomer benjamin = new FundamentalCustomer();
     }
 }
