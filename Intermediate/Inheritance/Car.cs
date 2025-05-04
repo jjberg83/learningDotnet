@@ -42,5 +42,10 @@ internal class Car : Vehicle
 
     // }
 
+    public Car(string registrationNumber) : base(registrationNumber)
+    {
+        
+    }
+
     
 }

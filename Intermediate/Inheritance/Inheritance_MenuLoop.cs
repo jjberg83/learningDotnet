@@ -15,6 +15,13 @@ public class Inheritance_MenuLoop
             
             switch(userInput)
             {
+                case "UpcastingAndDowncasting":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("UpcastingAndDowncasting");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    UpcastingAndDowncasting.Run();
+                    break;
                 case "ConstructorsAndInheritance":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("ConstructorsAndInheritance");
