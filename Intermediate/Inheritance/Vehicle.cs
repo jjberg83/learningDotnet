@@ -7,4 +7,9 @@ internal class Vehicle
     {
         _registrationNumber = registrationNumber;
     }    
+
+    public string GetRegistrationNumber()
+    {
+        return _registrationNumber;
+    }
 }
