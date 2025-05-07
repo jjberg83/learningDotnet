@@ -3,6 +3,25 @@ using System.Collections;
 namespace Intermediate.Inheritance;
 internal class UpcastingAndDowncasting
 {
+    private static void IkkeDowncasting(Shape shape)
+    {
+        // shape.Draw();
+        Console.WriteLine("Når ikke Draw metoden til Text herfra.");
+    }
+    private static void Downcasting(Shape shape)
+    {
+        Text text = shape as Text;
+        if (text != null)
+        {
+            text.Draw();
+            Console.WriteLine("Man når Draw metoden til Text klassen");
+        }
+        else
+        {
+            Console.WriteLine("Shape kan ikke downcastes til type Text, mao er ikke Text derived klasse av Shape");
+        }
+        
+    }
     public static void Run()
     {
         Text text = new Text();
@@ -49,6 +68,7 @@ internal class UpcastingAndDowncasting
         // Under ser man at man har lov til begge to
         shapeList.Add(new Text());
         shapeList.Add(new Shape());
+    
         // Men andre klasser som ikke er derived har ikke lov
         // shapeList.Add(new Car("rfaløsdkjf"));
 
@@ -58,13 +78,48 @@ internal class UpcastingAndDowncasting
         Shape shape2 = new Text();
         // Siden shape2 ved compile time er Shape, har den ikke adgang til 
         // fields og metoder i derived klassen Text (under ser vi ikke Draw, FontSize og FontName)
+        // Med andre ord har vi ikke downcastet fullstendig, vi må gjøre det eksplisitt
         // shape2.
-        // Downcaster vi, går det
+        // Downcaster vi (eksplisitt), går det
         Text downcastedShape2 = (Text)shape2;
         // Nå går det!
         downcastedShape2.Draw();
 
+        // La meg gjøre det på nytt, men der jeg bare downcaster en gang
+        Shape shape3 = new Shape();
+        // shape3.Draw() // Jeg har ikke adgang, bra.
+        Text shape3Downcastet = (Text)shape3;
+        shape3Downcastet.Draw(); // Jeg har adgang!
+
         // Nå skal han vise et real world example hvor downcasting er en greie
+        // Han lager et nytt prosjekt, men ikke Console Application
+        // Han skal lage desktop application for windows, og sier man kan bruke
+        // enten "Windows Form Application" eller "WPF Application" (den han brukte)
+        // Med dette kunne han lage et form man kunne fylle ut på en Windows maskin
+        // (finner det ikke igjen hos meg)
+
+        // Hovedpoenget med leksjonen
+
+        // Metoder som krever for eksempel object som parameter, bruker implisitt
+        // upcasting når man legger inn en type, som vil være derived av object
+        // siden alt i C# er objekter
+
+        // Eksempel: 
+        // metoden(object element)
+        // kan brukes slik:
+        // metoden(string "hei") stringen upcastes da til object
+
+        // Motsatt vil man inni metoder som har slike "høye" parametere som object
+        // eller andre base classes (som også har derived classes), trenge metoder
+        // og fields fra en av derived klassene. Inni metoden under trenger man
+        // Draw metoden til Text klassen, som er derived fra Shape klassen.
+        // Men det er ikke før man downcaster eksplisitt at man får tak i den.
+        // Mønsteret med <parameter as derivedKlasse> gir null hvis downcastingen ikke går
+        
+        Shape shape4 = new Shape();
+        IkkeDowncasting(shape4);
+        Console.WriteLine("-----------------");
+        Downcasting(shape4);
 
     }
     
