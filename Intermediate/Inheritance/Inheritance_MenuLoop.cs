@@ -15,6 +15,13 @@ public class Inheritance_MenuLoop
             
             switch(userInput)
             {
+                case "BoxingAndUnboxing":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("BoxingAndUnboxing");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    BoxingAndUnboxing.Run();
+                    break;
                 case "UpcastingAndDowncasting":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("UpcastingAndDowncasting");

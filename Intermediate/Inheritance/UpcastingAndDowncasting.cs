@@ -10,7 +10,7 @@ internal class UpcastingAndDowncasting
     }
     private static void Downcasting(Shape shape)
     {
-        Text text = shape as Text;
+        Text text = shape as Text;// Går ikke dette blir output null, så det krasjer aldri
         if (text != null)
         {
             text.Draw();
