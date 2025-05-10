@@ -51,7 +51,7 @@ public class TreeThree
         {
             return _height;
         }
-        private set // kan ikke bruke private her, uten å måtte lage enda en ny metode for validering, så de to øverste er bedre hvis man ønsker encapsulation og validering av input samtidig
+        set // kan ikke bruke private her, uten å måtte lage enda en ny metode for validering, så de to øverste er bedre hvis man ønsker encapsulation og validering av input samtidig
         {
             if (value > 0)
             {

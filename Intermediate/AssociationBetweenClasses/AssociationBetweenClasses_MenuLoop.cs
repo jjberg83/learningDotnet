@@ -37,9 +37,9 @@ public class AssociationBetweenClasses_MenuLoop
                     // må begge endres. Man kan ikke bare skrive get; eller set;
                     TreeThree treeThree = new TreeThree();
                     // Denne feiler
-                    // treeThree.Height = -1;
+                    treeThree.Height = -1;
                     // Denne er heller ikke mulig fordi jeg har brukt "private set"
-                    // treeThree.Height = 14;
+                    treeThree.Height = 14;
                     Console.WriteLine($"Treets høyde er {treeThree.Height}");
 
 
