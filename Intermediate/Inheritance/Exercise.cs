@@ -14,9 +14,13 @@ internal class Exercise
         {
             stack.Push(i);
         }
-        for(int i = ini; i <= max; i++)
+
+        // Linjen under får loopen under til å utføre exception, siden vi ikke har elementer i listen
+        // stack.Clear();
+        
+        for (int i = ini; i <= max; i++)
         {
-            Console.WriteLine(stack.Pop()); 
+            Console.WriteLine(stack.Pop());
         }
         // stack.Push(1);
         // stack.Push(2);

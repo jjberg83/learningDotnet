@@ -17,8 +17,9 @@ internal class Stack
     {
         if(_elements.Count == 0)
             throw new InvalidOperationException("You cannot Pop an element from an empty list");
-        object objectToBeRemoved = _elements[_elements.Count - 1];
-        _elements.RemoveAt(_elements.Count - 1);
+        int index = _elements.Count - 1;
+        object objectToBeRemoved = _elements[index];
+        _elements.RemoveAt(index);
         return objectToBeRemoved;
     }
 
