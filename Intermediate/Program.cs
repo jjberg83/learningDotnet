@@ -1,6 +1,7 @@
 ﻿using Intermediate.AssociationBetweenClasses;
 using Intermediate.Classes;
 using Intermediate.Inheritance;
+using Intermediate.Polymorphism;
 
 // Man bruker det han kaller globale exception handlers for hele Program.cs
 // og så legger man inn exceptions der det kan krasje (i stedet for mange try/catch blokker overalt)
@@ -18,6 +19,9 @@ try
 
     switch(userInput)
     {
+        case "Polymorphism":
+            Polymorphism_MenuLoop.Run();
+            break;
         case "Inheritance":
             Inheritance_MenuLoop.Run();
             break;

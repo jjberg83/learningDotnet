@@ -1,12 +1,7 @@
 namespace Intermediate.Polymorphism;
 internal class Animal
 {
-    private readonly DateTime _birthDate;
-
-    public Animal(DateTime birthDate)
-    {
-        _birthDate = birthDate;
-    }
+    public DateTime Birthday { get; set; }
 
     // Virtual gjør at denne metoden kan overrides av derived klassens
     // forslag til implementasjon av denne metoden (med akkurat samme signatur)
