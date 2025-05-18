@@ -1,4 +1,5 @@
 namespace Intermediate.Polymorphism;
+
 internal class Animal
 {
     public DateTime Birthday { get; set; }
@@ -8,6 +9,11 @@ internal class Animal
     public virtual void Eat()
     {
         Console.WriteLine("Eat food as fast as possible before other animals take my food");
+    }
+
+    public void Sleep()
+    {
+        Console.WriteLine("Jeg sover med ett øye åpent");
     }
 
 }

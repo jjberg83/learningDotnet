@@ -17,6 +17,13 @@ internal class Human : Animal
         // base.Eat();
     }
 
-    
+    // Siden vi allerede har en metode kalt Sleep() i base class, og ikke bruker
+    // virtual og override kombinasjonen, må vi skrive ekstra kode i for loopen i 
+    // MethodOverriding.cs klassen for å kunne kalle på Human sin variant av Sleep metoden
+    // (vi må sjekke for om Animal i hvert tilfelle også er en Human)
+    public void Sleep()
+    {
+        Console.WriteLine("Jeg sover trygt i en seng og kan sove uforstyrret");
+    }    
     
 }

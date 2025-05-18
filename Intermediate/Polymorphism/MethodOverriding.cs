@@ -32,11 +32,21 @@ internal class MethodOverriding
         foreach (var animal in animals)
         {
             Console.WriteLine($"Jeg ble født {animal.Birthday}");
-            // Her ser man at Human klassens Eat metode legger til ekstra oppå Anmial klassens Eat metode
+            // Her ser man at Human klassens Eat metode legger til ekstra oppå Anmial klassens Eat metode (men må bruke base.Eat())
             // Denne foreach blokken trenger ikke endres. Vi bare kaller på metoden, så vet foreach
             // blokken om det er snakk om base class eller en derived class, og henter det som er 
-            // ekstra i Eat klassen hvis det er snakk om en derived class
+            // ekstra i Eat klassen hvis det er snakk om en derived class. Alt dette skjer automatisk fordi
+            // vi bruker virutal og overwrite i base og derived class.
             animal.Eat();
+
+            // Sleep metodene i både base og derived class bruker derimot ikke virtual og override, og under
+            // må man gjøre sjekke om det er Human eller ikke for å kunne kjøre Human sin versjon av Sleep metoden. 
+            // Gjør vi ikke denne sjekken, vil Animal sin Sleep metode kjøres, fordi vi looper gjennom en liste med Animal
+            var downcasted = animal as Human;
+            if (downcasted != null)
+                downcasted.Sleep();
+            else
+                animal.Sleep();
             Console.WriteLine("---------------------------");
         }
         
