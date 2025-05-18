@@ -15,6 +15,20 @@ internal class Polymorphism_MenuLoop
 
             switch (userInput)
             {
+                case "DecoupledCode":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("DecoupledCode");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    Decoupled_Code.DecoupledCode.Run();
+                    break;
+                case "CoupledCode":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("CoupledCode");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    Coupled_Code.CoupledCode.Run();
+                    break;
                 case "MethodOverriding":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("MethodOverriding");
