@@ -13,23 +13,30 @@ internal class Polymorphism_MenuLoop
 
             string? userInput = Console.ReadLine();
 
-            switch (userInput)
+            switch (userInput.ToLower())
             {
-                case "DecoupledCode":
+                case "abstractclassesandmembers":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("AbstractClassesAndMembers");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    AbstractClassesAndMembers.Run();
+                    break;
+                case "decoupledcode":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("DecoupledCode");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
                     Decoupled_Code.DecoupledCode.Run();
                     break;
-                case "CoupledCode":
+                case "coupledcode":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("CoupledCode");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
                     Coupled_Code.CoupledCode.Run();
                     break;
-                case "MethodOverriding":
+                case "methodoverriding":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("MethodOverriding");
                     Console.WriteLine("-----------------");
