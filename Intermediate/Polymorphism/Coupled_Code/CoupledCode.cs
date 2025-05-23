@@ -3,7 +3,12 @@ internal class CoupledCode
 {
     public static void Run()
     {
-        var sirkel = new Shape() { Type = ShapeType.Circle };
+        var sirkel = new Shape() { Type = ShapeType.Circle, Position = new Position() {Y = 2} };
+        sirkel.Position.X = 5;
+
+        Console.WriteLine(sirkel.Position.X);
+        Console.WriteLine(sirkel.Position.Y);
+    
         var firkant = new Shape() { Type = ShapeType.Square };
         var trekant = new Shape() { Type = ShapeType.Triangle };
         // List<Shape> shapes = new List<Shape>() { sirkel, firkant }; // shortcuten
