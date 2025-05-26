@@ -15,6 +15,13 @@ internal class Polymorphism_MenuLoop
 
             switch (userInput.ToLower())
             {
+                case "sealedclassesandmembers":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("SealedClassesAndMembers");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    SealedClassesAndMembers.Run();
+                    break;
                 case "abstractclassesandmembers":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("AbstractClassesAndMembers");
