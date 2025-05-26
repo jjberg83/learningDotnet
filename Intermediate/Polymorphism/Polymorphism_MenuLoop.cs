@@ -11,54 +11,43 @@ internal class Polymorphism_MenuLoop
             Console.WriteLine("##################");
             Console.WriteLine();
 
+            /* Valgene jeg har:
+            SealedClassesAndMembers
+            AbstractClassesAndMembers
+            DecoupledCode
+            CoupledCode
+            MethodOverriding
+            */
+
             string? userInput = Console.ReadLine();
 
-            switch (userInput.ToLower())
+            if (string.Equals(userInput, "exit", StringComparison.OrdinalIgnoreCase))
             {
-                case "sealedclassesandmembers":
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine("SealedClassesAndMembers");
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine();
-                    SealedClassesAndMembers.Run();
-                    break;
-                case "abstractclassesandmembers":
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine("AbstractClassesAndMembers");
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine();
-                    AbstractClassesAndMembers.Run();
-                    break;
-                case "decoupledcode":
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine("DecoupledCode");
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine();
-                    Decoupled_Code.DecoupledCode.Run();
-                    break;
-                case "coupledcode":
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine("CoupledCode");
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine();
-                    Coupled_Code.CoupledCode.Run();
-                    break;
-                case "methodoverriding":
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine("MethodOverriding");
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine();
-                    MethodOverriding.Run();
-                    break;
-                case "exit":
-                    Console.WriteLine("Stopping program...");
-                    loopButton = false;
-                    break;
-                default:
-                    Console.WriteLine("You did not write a file name or an exercise number. Program stopping...");
-                    loopButton = false;
-                    break;
+                Console.WriteLine("Stopping program...");
+                break;
             }
+
+            string className = $"Intermediate.Polymorphism.{userInput}";
+
+            Type? type = Type.GetType(className);
+
+            if (type != null)
+            {
+                var runMethod = type.GetMethod("Run", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+                if (runMethod != null)
+                {
+                    runMethod.Invoke(null, null);
+                }
+                else
+                {
+                    Console.WriteLine($"Class '{userInput}' does not have a static Run() method");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Could not find a class named '{userInput}'");
+            }
+
         }
     }
 }
