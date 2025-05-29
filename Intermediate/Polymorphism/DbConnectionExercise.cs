@@ -1,6 +1,6 @@
 namespace Intermediate.Polymorphism;
 
-public class DatabaseConnectionExercise
+public class DbConnectionExercise
 {
     public static void Run()
     {

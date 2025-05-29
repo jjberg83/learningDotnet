@@ -1,6 +1,6 @@
 namespace Intermediate.Polymorphism;
 
-public class OracleConnection : DatabaseConnection
+public class OracleConnection : DbConnection
 {
     public OracleConnection(string connectionString) : base(connectionString)
     {

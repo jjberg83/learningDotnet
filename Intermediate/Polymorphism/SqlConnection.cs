@@ -1,6 +1,6 @@
 namespace Intermediate.Polymorphism;
 
-public class SqlConnection : DatabaseConnection
+public class SqlConnection : DbConnection
 {
     public SqlConnection(string connectionString) : base(connectionString)
     {

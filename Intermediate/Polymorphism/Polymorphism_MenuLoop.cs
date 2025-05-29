@@ -11,15 +11,6 @@ internal class Polymorphism_MenuLoop
             Console.WriteLine("##################");
             Console.WriteLine();
 
-            /* Valgene jeg har:
-            SealedClassesAndMembers
-            AbstractClassesAndMembers
-            DecoupledCode
-            CoupledCode
-            MethodOverriding
-            DatabaseConnectionExercise
-            */
-
             string? userInput = Console.ReadLine();
 
             if (userInput != null && userInput.ToLower()== "exit")
