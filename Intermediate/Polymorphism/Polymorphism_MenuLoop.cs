@@ -13,7 +13,7 @@ internal class Polymorphism_MenuLoop
 
             string? userInput = Console.ReadLine();
 
-            if (userInput != null && userInput.ToLower()== "exit")
+            if (userInput != null && userInput.ToLower() == "exit")
             {
                 Console.WriteLine("Stopping program...");
                 break;
