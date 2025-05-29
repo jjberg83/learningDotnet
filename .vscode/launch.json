@@ -43,7 +43,7 @@
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/Intermediate/bin/Debug/net9.0/Intermediate.dll",
-            "args": ["Inheritance"],
+            "args": ["Polymorphism"],
             "cwd": "${workspaceFolder}/Intermediate",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "integratedTerminal",

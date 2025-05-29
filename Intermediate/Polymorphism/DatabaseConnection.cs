@@ -8,9 +8,9 @@ public abstract class DatabaseConnection
     public DatabaseConnection(string connectionString)
     {
         if (connectionString == null)
-            throw new ArgumentNullException(nameof(connectionString));
+            throw new ArgumentNullException(nameof(connectionString), "Connection string kan ikke være null");
         if (string.IsNullOrWhiteSpace(connectionString))
-            throw new ArgumentNullException("Connection string kan ikke være null eller bare white space");
+            throw new ArgumentNullException("Connection string kan ikke være bare white space");
         ConnectionString = connectionString;
     }
 
