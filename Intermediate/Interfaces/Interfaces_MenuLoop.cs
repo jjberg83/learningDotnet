@@ -1,0 +1,46 @@
+namespace Intermediate.Interfaces;
+
+internal class Interfaces_MenuLoop
+{
+    public static void Run()
+    {
+        bool loopButton = true;
+        while (loopButton)
+        {
+            Console.WriteLine("##################");
+            Console.WriteLine("Please choose the name of the file you want to run (type 'Exit' to stop)");
+            Console.WriteLine("##################");
+            Console.WriteLine();
+
+            string? userInput = Console.ReadLine();
+
+            if (userInput != null && userInput.ToLower() == "exit")
+            {
+                Console.WriteLine("Stopping program...");
+                break;
+            }
+
+            string className = $"Intermediate.Interfaces.{userInput}";
+
+            Type? type = Type.GetType(className);
+
+            if (type != null)
+            {
+                var runMethod = type.GetMethod("Run", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+                if (runMethod != null)
+                {
+                    runMethod.Invoke(null, null);
+                }
+                else
+                {
+                    Console.WriteLine($"Class '{userInput}' does not have a static Run() method");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Could not find a class named '{userInput}'");
+            }
+
+        }
+    }
+}
