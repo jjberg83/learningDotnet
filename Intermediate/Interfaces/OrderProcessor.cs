@@ -1,11 +1,21 @@
 namespace Intermediate.Interfaces;
 public class OrderProcessor
 {
-    private readonly ShippingCalculator _shippingCalculator;
+    // De to første bolkene her har en dependency til klassen ShippingCalculator, som ikke er bra
 
-    public OrderProcessor()
+    // private readonly ShippingCalculator _shippingCalculator;
+
+    // public OrderProcessor()
+    // {
+    //     _shippingCalculator = new ShippingCalculator(); // Her instansierer man ShippingCalculator
+    // }
+
+    // Bedre å gjøre denne klassen avhengig av et interface i stedet
+    private readonly IShippingCalculator _shippingCalculator;
+
+    public OrderProcessor(IShippingCalculator shippingCalculator)
     {
-        _shippingCalculator = new ShippingCalculator();
+        _shippingCalculator = shippingCalculator;
     }
     public void Process(Order order)
     {

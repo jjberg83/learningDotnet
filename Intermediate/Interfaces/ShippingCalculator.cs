@@ -1,6 +1,6 @@
 namespace Intermediate.Interfaces;
 
-public class ShippingCalculator
+public class ShippingCalculator : IShippingCalculator
 {
     public float CalculateShipping(Order order)
     {
