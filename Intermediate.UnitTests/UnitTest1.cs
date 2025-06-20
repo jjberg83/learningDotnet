@@ -21,8 +21,13 @@ public class OrderProcessorTests
         // i en perfekt tilstand.
         var orderProcessor = new OrderProcessor(new FakeShippingCalculator());
 
-        // Skjønner ikke helt hvorfor vi også ikke lager en fake Order klasse
-        // av samme grunn som over?
+        // Vi lager ikke falske klasser av Order eller Shipment, fordi OrderProcessor ikke er 
+        // avhengig av disse. I OrderProcessor injiseres IShippingCalculator som et argument
+        // inn i konstruktøren, altså er det en dependency. Order og Shipment klassene brukes
+        // bare som argument (eller skapes) i metodene til OrderProcessor, og er derfor ikke
+        // dependencies til hele klassen som helhet. Det finnes unntak der man likevel kan skape falske
+        // klasser, selv om de ikke er dependencies, og det er når de er veldig komplekse eller har
+        // sideeffekter og gjerne er eksterne. Jeg kan se for meg en tredjeparts betalingsløsning for eksempel (Stripe).
         // NB: Vi instansierer Shipment, slik at den ikke er null. Fieldet IsShipped er altså true da.
         var order = new Order
         {
@@ -30,6 +35,17 @@ public class OrderProcessorTests
         };
 
         Assert.Throws<InvalidOperationException>(() => orderProcessor.Process(order));
+    }
+
+    [Fact]
+    public void Process_OrderIsNotShipped_CreatesNewShipment()
+    {
+        var orderProcessor = new OrderProcessor(new FakeShippingCalculator());
+        var order = new Order(); // Shipment blir altså null
+        orderProcessor.Process(order);
+        Assert.True(order.IsShipped);
+        Assert.Equal(1, order.Shipment.Cost);
+        Assert.Equal(DateTime.Today.AddDays(1), order.Shipment.ShippingDate);
     }
 }
 
