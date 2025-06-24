@@ -24,13 +24,13 @@ public class DbMigrator
         _logger = logger;
     }
 
-    public void LogInfo(string message)
+    public void Migrate()
     {
-        _logger.LogInfo(message);
+        _logger.LogInfo();
     }
 
-    public void LogError(string message)
+    public void ShowError()
     {
-        _logger.LogError(message);
+        _logger.LogError();
     }
 }

@@ -1,0 +1,3 @@
+Database started migration at 6/24/2025 6:54:00 AM
+Database finished migration at 6/24/2025 6:54:01 AM
+Error occured at 6/24/2025 6:54:01 AM
