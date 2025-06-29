@@ -9,7 +9,7 @@ public class PolymorphismWithInheritance
         var victor = new AtlasAnsatt(613, "Victor");
 
         var ansatte = new List<BouvetAnsatt>() { martin, trond, jørund, victor };
-        var stab = new BouvetStaff(ansatte);
-        stab.ListAllExpertise();
+        var stab = new BouvetStaff();
+        stab.ListAllExpertise(ansatte);
     }
 }
