@@ -21,18 +21,44 @@ namespace Intermediate.Interfaces;
 // Bedre med en Encoder som er avhengig av et interface. 
 // Da kan man endre Encoderens oppførsel bare med å skrive nye implementasjoner
 // av interfacet INotifier.
+// public class Encoder
+// {
+//     private readonly INotifier _notifier;
+
+//     public Encoder(INotifier notifier)
+//     {
+//         _notifier = notifier;
+//     }
+
+//     public void Encode(Video video)
+//     {
+//         // Video encode logic
+//         _notifier.Send($"Video has been encoded at {DateTime.Now}");
+//     }
+// }
+
+// Problemet med min variant over er at vi må lage flere Encodere hvis vi 
+// har lyst til å gi beskjed på flere måter (sms, mail, notification osv).
+// I tillegg til å ha flere Encodere for hver måte å gi beskjed på, vil også
+// en Video bli encodet for hver Encoder. Masse sløsing av ressursen.
+// Neden for er instruktørens løsning der man kun lager EN Encoder, man encoder 
+// bare EN video, men man gir beskjed om det på flere forskjellige måter.
+
 public class Encoder
 {
-    private readonly INotifier _notifier;
+    private readonly IList<INotifier> _notifiers;
 
-    public Encoder(INotifier notifier)
+    public Encoder(IList<INotifier> notifiers)
     {
-        _notifier = notifier;
+        _notifiers = notifiers;
     }
 
-    public void Encode(Video video)
+    public void Encode()
     {
-        // Video encode logic
-        _notifier.Send($"Video has been encoded at {DateTime.Now}");
+        foreach (INotifier notification in _notifiers)
+        {
+            notification.Send();
+            Console.WriteLine($"Video has been encoded at {DateTime.Now}");
+        }
     }
 }

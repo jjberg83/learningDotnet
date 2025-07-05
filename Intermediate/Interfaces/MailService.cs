@@ -1,10 +1,8 @@
 namespace Intermediate.Interfaces;
 public class MailService : INotifier
 {
-    public void Send(string message)
+    public void Send()
     {
         Console.WriteLine("Sending email...");
-        Console.WriteLine("Content: ");
-        Console.WriteLine(message);
     }
 }
