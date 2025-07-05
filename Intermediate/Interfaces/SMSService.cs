@@ -1,9 +1,10 @@
 namespace Intermediate.Interfaces;
-public class MailService : INotifier
+
+public class SMSService : INotifier
 {
     public void Send(string message)
     {
-        Console.WriteLine("Sending email...");
+        Console.WriteLine("Sending sms...");
         Console.WriteLine("Content: ");
         Console.WriteLine(message);
     }

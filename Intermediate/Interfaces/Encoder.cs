@@ -33,6 +33,6 @@ public class Encoder
     public void Encode(Video video)
     {
         // Video encode logic
-        _notifier.Send();
+        _notifier.Send($"Video has been encoded at {DateTime.Now}");
     }
 }
