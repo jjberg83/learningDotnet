@@ -21,6 +21,10 @@ public class OrderProcessorTests
         // i en perfekt tilstand.
         var orderProcessor = new OrderProcessor(new FakeShippingCalculator());
 
+        // (Om det under. Det viktigste er at når klassen er avhengig av et interface eller abstract
+        // klasse, skaper man en falsk klasse av det. Da inneholder den business logic. Er den avhengig
+        // av enkle data klasser som kun inneholder data og simple metoder, trenger man ikke skape
+        // falske klasser.)
         // Vi lager ikke falske klasser av Order eller Shipment, fordi OrderProcessor ikke er 
         // avhengig av disse. I OrderProcessor injiseres IShippingCalculator som et argument
         // inn i konstruktøren, altså er det en dependency. Order og Shipment klassene brukes
@@ -29,6 +33,12 @@ public class OrderProcessorTests
         // klasser, selv om de ikke er dependencies, og det er når de er veldig komplekse eller har
         // sideeffekter og gjerne er eksterne. Jeg kan se for meg en tredjeparts betalingsløsning for eksempel (Stripe).
         // NB: Vi instansierer Shipment, slik at den ikke er null. Fieldet IsShipped er altså true da.
+        //  ( jeg har også lært senere at grunnen til at man ikke lager
+        // interfaces av disse, men at man bruker rene klasser inni andre klasser, er fordi de er såkalte
+        // data classes, altså klasser somh hovedsaeklig inneholder data (men kan inneholde veldig simple
+        // metoder. Er de derimot klasser med BEHAVIOUR, altså inneholder metoder med komplisert business logic
+        // må vi bruke interfaces i stedet.) Gjerne det også har noe å si for om man må skape falske klasser,
+        // alt etter av om de er interfaces eller ikke?). 
         var order = new Order
         {
             Shipment = new Shipment()

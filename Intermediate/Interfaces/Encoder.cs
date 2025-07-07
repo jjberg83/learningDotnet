@@ -73,9 +73,9 @@ public class Encoder
 {
     private readonly IList<INotifier> _notifiers;
 
-    public Encoder()
+    public Encoder() // Altså ingen listen inn som argument her
     {
-        _notifiers = new List<INotifier>() { };
+        _notifiers = new List<INotifier>() { };// Vi lager en tom liste, som vi kan legge til/fjerne fra etter instansiering
     }
 
     public void Encode()
