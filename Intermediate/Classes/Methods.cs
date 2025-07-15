@@ -6,8 +6,9 @@ public static class Methods
 {
     public static void Run()
     {
-        
-        // Man kan legge inn et varierende antall parametere til metoden
+
+        // Man kan legge inn et varierende antall parametere til metoden (og enten som en int array eller bare tallene)
+        // Ser også at man bare bruker metoden her, uten å opprette en instans av Calculator
         int add3 = Calculator.Add(new int[]{1,2,3});
         int add4 = Calculator.Add(new int[]{1,2,3,4});
         int add5 = Calculator.Add(1,2,3,4,5);
