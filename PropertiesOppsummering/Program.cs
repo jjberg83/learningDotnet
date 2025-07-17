@@ -74,7 +74,8 @@ Propertien over har ingen logikk, og kan derfor forkortes enda mer til...
 public DateTime BirthDate { get; set; }
 
 Og da trenger man ikke en gang å definere den private helt øverst!
-Den skapes automatisk.
+Den skapes automatisk. Dette kalles auto-implemented property (uten eskplisitt backing field).
+Man har da ikke mulighet for logikk og validering i getter og setter. 
 
 
 ############################################
@@ -82,9 +83,15 @@ HVORFOR VI BRUKER PROPERTIES
 ############################################
 
 Properties brukes for å styre validering, logikk og finstyre hva man har tilgang
-på når man bruker instanser av klassen i andre klasser.
+på når man bruker instanser av klassen i andre klasser. Man har 3 "våpen":
 
-Disse to er for eksempel det samme i praksis.
+1 - Privat keywordet gjør at man kun kan gjøre noe med elementet inni selve klassen
+2 - For å skape immutability, bruk readonly keywordet på et privat backing field, eller GETTER trikset under
+3 - For å validere, bruk en av VALIDERINGSTEKNIKKENE under.
+
+(2) - GETTER TRIKS:
+
+Disse to er det samme i praksis.
 
 public class Person
 {
@@ -96,24 +103,15 @@ public class Person
     }
 }
 
-////// Avsporing //////////
-/// Skulle man satt navn på den over i fieldet selv, ville det sett slik ut ///
-/// public class Person
-{
-    private string _name = "Jørund";
-    
-    public string Name { get { return _name;}  } 
-
-}
-////////////////////////////////////////////
-
 Her ser vi klassen definert på annen måte, men funksjonaliteten er akkurat som over.
 
 public class Person
 {
-    private string _name; // eksplisitt backing field
+    private readonly string _name; // eksplisitt backing field
     
     public string Name { get { return _name;}  } // Read-only property
+    // Kan også skrives slik:
+    public string Name => _name;
 
     public Person(string name)
     {
@@ -121,11 +119,76 @@ public class Person
     }
 }
 
-De gjør akkurat det samme. Fordelen med den øverste er at det er mindre kode. Fordelen med den nederste er at man kan legge til
-logikk, slik:
+De gjør akkurat det samme, men den over bruker jo mindre kode, og er derfor bedre.
 
+(3) - VALIDERINGSTEKNIKKER:
 */
 
+// Jeg vil demonstrerer 3 måter å bruke validation logic for fields
+// Først ut er auto-implemented property der valideringen gjøres
+// i en annen metode, slik at man kan stille høyden mange ganger.
+public class TreeOne
+{
+    public int Height { get; private set; }
+
+    public void SetHeight(int height)
+    {
+        if(height > 0)
+        {
+            Height = height;
+        }
+        else
+        {
+            throw new ArgumentException("Høyde må være større enn 0");
+        }
+    }
+}
+
+// Her gjøres valideringen i constructoren i stedet, men da kan objektet (instansen av klassen)
+// kun stille høyden EN gang, i det den skapes.
+public class TreeTwo
+{
+    public int Height { get; private set; }
+
+    public TreeTwo(int height)
+    {
+        if (height > 0)
+        {
+            Height = height;
+        }
+        else
+        {
+            throw new ArgumentException("Høyde må være større enn 0");
+        }
+    }
+}
+
+// Og her gjøres valideringen i setteren i stedet
+// Men det krever en private backing field (og man kan bruke denne i getteren pluss value keywordet i setteren)
+// Og siden man gjør shit i setteren, kan man ikke bare skrive
+// get; den må skrives som nedenfor, selv om den gjør akkurat
+// det samme som get; i auto-implemented properties.
+public class TreeThree
+{
+    private int _height;
+    public int Height { 
+        get
+        {
+            return _height;
+        }
+        set // kan ikke bruke private her, uten å måtte lage enda en ny metode for validering, så de to øverste er bedre hvis man ønsker encapsulation og validering av input samtidig
+        {
+            if (value > 0)
+            {
+                _height = value;
+            }
+            else 
+            {
+                throw new ArgumentException("Høyde må være større enn 0");
+            }
+        } 
+    }
+}
 
 
 
