@@ -1,5 +1,4 @@
 namespace Advanced.Generics;
-
 public class Generics
 {
     public static void Run()

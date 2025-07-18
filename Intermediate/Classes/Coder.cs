@@ -12,6 +12,7 @@ public class Coder
 
     // Vi må lagre indexeren i en Backing field 
     // husk, readonly gjør at man bare kan initialisere denne en gang
+    // Er ikke gjort her pga det som skjer i metoden GetAllEntries under
     private Dictionary<string, string> _dictionary = new Dictionary<string, string>();
 
     public string this[string key] 
@@ -28,7 +29,7 @@ public class Coder
 
     public IEnumerable<KeyValuePair<string, string>> GetAllEntries()
     {
-        // Setter man readonly foran dette fieldet, kan man ikke med et uhell slette alt i 
+        // Setter man readonly foran dette fieldet (_dictionary over), kan man ikke med et uhell slette alt i 
         // _dictionary ved å re-initialisere den som under
         _dictionary = new();
         return _dictionary;
