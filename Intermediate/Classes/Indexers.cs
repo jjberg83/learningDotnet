@@ -20,6 +20,10 @@ public class Indexers
         benjamin["codeIdea"] = "Fix the world. Starting with UiS";
         benjamin["tiredOfHearing"] = "Bro...skal vi ta en runde FIFA eller?";
 
+        // Legg merke til at man behandler klasse instansen (variabelen benajmin)
+        // som en dictionary! Man skriver ikke benjamin.DictionaryFieldNavn[Nøkkel], 
+        // men benjamin[Nøkkel]!
+        // Hele klassen får altså en slag hemmelig easter egg dictionary som man kan legge ting inn i.
         Console.WriteLine($"benjamin[\"codeIdea\"]:  {benjamin["codeIdea"]}");
         Console.WriteLine($"benjamin[\"tiredOfHearing\"]:  {benjamin["tiredOfHearing"]}");
 
