@@ -21,5 +21,26 @@ public class Generics
 
         // Det har en kostnad fordi man må allokere plass av og på i heapen, 
         // i tillegg til man må sjekke typer.
+
+        // Her tester jeg klassen ListIntegers, som er den jeg skrev med utgangspunkt
+        // i en "skall klasse" skrevet av Mosh (fields og metoder var skrevet med 
+        // NotImplementedExceptions)
+        var listIntegers = new ListIntegers();
+        // Har ikke lagt til noen elementer i klassens private backing field, så burde
+        // heller ikke få noe igjen første gang jeg spør om noe fra index 0
+        // Får en IndexOutOfRangeException
+        try
+        {
+            Console.WriteLine($"listIntegers[0]: {listIntegers[0]}"); 
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        // Legger til et element, og alt går bra
+        listIntegers.Add(42);
+        Console.WriteLine($"listIntegers[0]: {listIntegers[0]}"); 
+
     }
 }
