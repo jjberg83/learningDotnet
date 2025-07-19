@@ -31,7 +31,7 @@ public class Generics
         // Får en IndexOutOfRangeException
         try
         {
-            Console.WriteLine($"listIntegers[0]: {listIntegers[0]}"); 
+            Console.WriteLine($"listIntegers[0]: {listIntegers[0]}");
         }
         catch (Exception e)
         {
@@ -40,7 +40,30 @@ public class Generics
 
         // Legger til et element, og alt går bra
         listIntegers.Add(42);
-        Console.WriteLine($"listIntegers[0]: {listIntegers[0]}"); 
+        Console.WriteLine($"listIntegers[0]: {listIntegers[0]}");
+
+        // Problemet med ListIntegers klassen er at hvis jeg har lyst til å legge inn
+        // Book inn i listen vil det ikke fungere. Jeg må skrive en helt lik klasse
+        // med unntak at den tar inn Book i stedet for int. Og slikt må jeg fortsette
+        // for alle nye typer. Mye duplisering av kode altså.
+
+        // Jeg kunne skrevet en klasse som den du ser i ListObjects.cs, som tar inn object.
+        // Alt i C# er jo object, så det funker. Men performance er skikkelig dårlig.
+        // Ting blir boxed og unboxed, som er skikkelig dårlig for performance.
+
+        // Her ser man at det fungerer.
+        var objectList = new ListObjects();
+        objectList.Add(7);
+        objectList.Add("Jørund");
+        objectList.Add(true);
+        objectList.Add(new Book());
+
+        for (int i = 0; i < 4; i++)
+        {
+            Console.WriteLine(objectList[i]);
+        }
+
+        // Sett til 02.40
 
     }
 }
