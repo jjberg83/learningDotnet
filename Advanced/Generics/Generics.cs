@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 namespace Advanced.Generics;
 public class Generics
 {
@@ -63,7 +65,43 @@ public class Generics
             Console.WriteLine(objectList[i]);
         }
 
-        // Sett til 02.40
+        // I stedet bruker man klassen kalt ListGeneric, som bruker Generics
+        // Man spesifiserer hva man ønsker å legge inn i listen fra gang til gang (og dermed er datatypen bestemt 
+        // ved runtime, og man unngår boxing og unboxing).
+        // Men fordelen med listen over er jo at den kan ta inn mange forskjellige
+        // datatyper i samme instans av listen.
+        var genericListMedIntegers = new ListGeneric<int>();
+        // genericListMedIntegers.Add(343);
+        var genericListMedStrings = new ListGeneric<string>();
+        // genericListMedStrings.Add("lasdjf");
+
+        // I praksis er det veldig sjelden at man trenger å lage egne Generic klasser, siden dotnet allerede
+        // har en god samling her: System.Collections.Generic
+        // System.Collections.Generic.
+
+        // I de få tilfellene der vi trenger å lage egne Generics, viser resten av leksjonen dette.
+        // Vi går i gang med å lage en generisk dictionary
+        // Tipper vi lager det inni klasser, siden alt i C# er klasser. Her ser Mosh antageligvis for
+        // seg at denne klassen skal inneholde masse annet, som er irrelevant i dette tilfelle. Det som
+        // er relevant er at den også skal ha en generisk dictionary, som vi nå lager inni klassen (se klassen kalt DictionaryGeneric.cs)
+
+        var bookDictionary = new DictionaryGeneric<string, Book>();
+        bookDictionary.Add("Lord of the Rings", new Book());
+        bookDictionary.Add("Hitchhikers Guide to the Galaxy", new Book());
+
+        // Hvis man ønsker å begrense hvilke datatyper T kan være for en Generic, 
+        // må man bruke constraints. Se i klassen Utilities.cs for begynnelsen på dette.
+        var utility = new Utilities();
+
+        // Her bruker man Max metoden som tar inn ints
+        Console.WriteLine(utility.Max(2, 1));
+        Console.WriteLine(utility.Max(100, 200));
+
+        // Og her bruker man Max metoden som tar inn enhver datatype
+        // men med en constraint, nemlig at datatypen som tas inn kan sammenlignes
+        // det vil si at datatypen må implementere IComparable interfacet
+        Console.WriteLine(utility.Max('a', 'j')); // a gir ascii 97, mens j gir 106, viktig å bruke single quotes, fordi da bruker man ascii sammenligning med sine ASCII koder, string gir en annen sammenligning
+        Console.WriteLine(utility.Max('a', 'A')); // a gir ascii 97, mens A gir 65
 
     }
 }
