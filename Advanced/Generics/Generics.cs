@@ -1,4 +1,4 @@
-using System.Runtime.InteropServices;
+using System.ComponentModel.Design;
 
 namespace Advanced.Generics;
 public class Generics
@@ -102,6 +102,63 @@ public class Generics
         // det vil si at datatypen må implementere IComparable interfacet
         Console.WriteLine(utility.Max('a', 'j')); // a gir ascii 97, mens j gir 106, viktig å bruke single quotes, fordi da bruker man ascii sammenligning med sine ASCII koder, string gir en annen sammenligning
         Console.WriteLine(utility.Max('a', 'A')); // a gir ascii 97, mens A gir 65
+
+        // Over har vi brukt én type constraint, nemlig interface. Totalt finnes det 5 constraint typer:
+        // 1 - where T : IInterface
+        // 2 - where T : EnKlasse (eller noen av dens subklasser)
+        // 3 - where T : struct (altså en value type)
+        // 4 - where T : class (altså en reference type)
+        // 5 - where T : new() (et objekt som har en default constructor)
+
+        // Nå skal vi se på (2), en constraint på en hel klasse (se klassen kalt DiscountCaluclator)
+        // Først legger vi inn Product klassen inn som T
+        var productDiscount = new DiscountCalculator<Product>();
+        var ball = new Product { Title = "Fotball", Price = 100f };
+        var ballRabatt = productDiscount.CalculateDiscount(ball);
+        Console.WriteLine($"Rabatt på ball: {ballRabatt}, pris: {ball.Price}");
+
+        // Og så legger vi en subklasse av Product, Book, inn som T
+        var bookDiscount = new DiscountCalculator<Book>();
+        var biografi = new Book { Title = "Gunhild Stordalen", Price = 250f, Isbn = "oiu3ro34q3rfsklj" };
+        var bokRabatt = bookDiscount.CalculateDiscount(biografi);
+        Console.WriteLine($"Rabatt på bok: {bokRabatt}, pris: {biografi.Price}");
+
+        // Så skal vi se på (3), når T er en value type (se klassen kalt Nullable)
+        // Under ser vi 3 value types. Vi klarer ikke å gjøre dem om til null.
+        int etTall = 7;
+        // etTall = null;
+        char bokstav = 'j';
+        // bokstav = null;
+        bool binært = true;
+        // binært = null;
+
+        // Men ved å sende disse value typene inn som T i klassen Nullable, som har en metode
+        // som er designet for å hjelpe disse value typene med dette, går det
+        Console.WriteLine();
+        var nullableTall = new Nullable<int>();
+        object etTallKonvertert = nullableTall.MakeNullable(etTall);
+        Console.WriteLine($"etTallKonvertert: {etTallKonvertert}, vi ser verdien er der fortsatt, men nå er variabelen et objekt");
+        etTallKonvertert = null;
+        Console.WriteLine($"etTallKonvertert: {etTallKonvertert}, Men nå kan vi gjøre den om til null siden det er et object");
+
+        Console.WriteLine();
+        var nullablebokstav = new Nullable<char>();
+        object bokstavKonvertert = nullablebokstav.MakeNullable(bokstav);
+        Console.WriteLine($"bokstavKonvertert: {bokstavKonvertert}, vi ser verdien er der fortsatt, men nå er variabelen et objekt");
+        bokstavKonvertert = null;
+        Console.WriteLine($"bokstavKonvertert: {bokstavKonvertert}, Men nå kan vi gjøre den om til null siden det er et object");
+
+        Console.WriteLine();
+        var nullableBinært = new Nullable<bool>();
+        object binærtKonvertert = nullableBinært.MakeNullable(binært);
+        Console.WriteLine($"binærtKonvertert: {binærtKonvertert}, vi ser verdien er der fortsatt, men nå er variabelen et objekt");
+        binærtKonvertert = null;
+        Console.WriteLine($"binærtKonvertert: {binærtKonvertert}, Men nå kan vi gjøre den om til null siden det er et object");
+
+        // Så over til (5), hvor constrainten er at objektet må ha en default constructor (se Utilites)
+        var utilityBok = new Utilities();
+        Book bok = utilityBok.DoSomething<Book>(Book);
+
 
     }
 }
