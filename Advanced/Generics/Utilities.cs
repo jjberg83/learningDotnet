@@ -37,8 +37,7 @@ public class Utilities
     // Her har man en constraint på at objektet må ha en default constructor
     public T DoSomething<T>(T value) where T : new()
     {
-        var obj = new T();
-        return obj;
+        return new T();
     }
 
 

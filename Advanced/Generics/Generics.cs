@@ -1,5 +1,3 @@
-using System.ComponentModel.Design;
-
 namespace Advanced.Generics;
 public class Generics
 {
@@ -124,23 +122,12 @@ public class Generics
         Console.WriteLine($"Rabatt på bok: {bokRabatt}, pris: {biografi.Price}");
 
         // Så skal vi se på (3), når T er en value type (se klassen kalt Nullable)
-        // Under ser vi 3 value types. Vi klarer ikke å gjøre dem om til null.
-        int etTall = 7;
-        // etTall = null;
+        // Under ser vi 1 value type. Vi klarer ikke å gjøre den om til null.
         char bokstav = 'j';
         // bokstav = null;
-        bool binært = true;
-        // binært = null;
 
-        // Men ved å sende disse value typene inn som T i klassen Nullable, som har en metode
-        // som er designet for å hjelpe disse value typene med dette, går det
-        Console.WriteLine();
-        var nullableTall = new Nullable<int>();
-        object etTallKonvertert = nullableTall.MakeNullable(etTall);
-        Console.WriteLine($"etTallKonvertert: {etTallKonvertert}, vi ser verdien er der fortsatt, men nå er variabelen et objekt");
-        etTallKonvertert = null;
-        Console.WriteLine($"etTallKonvertert: {etTallKonvertert}, Men nå kan vi gjøre den om til null siden det er et object");
-
+        // Men ved å sende denne value typen inn som T i klassen Nullable, som har en metode
+        // som er designet for å hjelpe denne value typen med dette, går det
         Console.WriteLine();
         var nullablebokstav = new Nullable<char>();
         object bokstavKonvertert = nullablebokstav.MakeNullable(bokstav);
@@ -149,16 +136,17 @@ public class Generics
         Console.WriteLine($"bokstavKonvertert: {bokstavKonvertert}, Men nå kan vi gjøre den om til null siden det er et object");
 
         Console.WriteLine();
-        var nullableBinært = new Nullable<bool>();
-        object binærtKonvertert = nullableBinært.MakeNullable(binært);
-        Console.WriteLine($"binærtKonvertert: {binærtKonvertert}, vi ser verdien er der fortsatt, men nå er variabelen et objekt");
-        binærtKonvertert = null;
-        Console.WriteLine($"binærtKonvertert: {binærtKonvertert}, Men nå kan vi gjøre den om til null siden det er et object");
+        var nullableIntMedVerdi = new Nullable<int>(7);
+        Console.WriteLine($"HasValue: {nullableIntMedVerdi.HasValue}");
+        Console.WriteLine($"Value: {nullableIntMedVerdi.GetValueOrDefault()}");
+
+        Console.WriteLine();
+        var nullableIntUtendVerdi = new Nullable<int>();
+        Console.WriteLine($"HasValue: {nullableIntUtendVerdi.HasValue}");
+        Console.WriteLine($"Value: {nullableIntUtendVerdi.GetValueOrDefault()}");
 
         // Så over til (5), hvor constrainten er at objektet må ha en default constructor (se Utilites)
-        var utilityBok = new Utilities();
-        Book bok = utilityBok.DoSomething<Book>(Book);
-
-
+        // Denne forsto jeg ikke hvordan jeg skulle bruke.
+        var utilites = new Utilities();
     }
 }
