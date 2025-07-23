@@ -62,6 +62,7 @@ public class Generics
         {
             Console.WriteLine(objectList[i]);
         }
+        Console.WriteLine();
 
         // I stedet bruker man klassen kalt ListGeneric, som bruker Generics
         // Man spesifiserer hva man ønsker å legge inn i listen fra gang til gang (og dermed er datatypen bestemt 
@@ -69,9 +70,11 @@ public class Generics
         // Men fordelen med listen over er jo at den kan ta inn mange forskjellige
         // datatyper i samme instans av listen.
         var genericListMedIntegers = new ListGeneric<int>();
-        // genericListMedIntegers.Add(343);
+        genericListMedIntegers.Add(343);
+        Console.WriteLine($"genericListMedIntegers[0]: {genericListMedIntegers[0]}");
         var genericListMedStrings = new ListGeneric<string>();
-        // genericListMedStrings.Add("lasdjf");
+        genericListMedStrings.Add("lasdjf");
+        Console.WriteLine($"genericListMedStrings[0]: {genericListMedStrings[0]}");
 
         // I praksis er det veldig sjelden at man trenger å lage egne Generic klasser, siden dotnet allerede
         // har en god samling her: System.Collections.Generic
@@ -82,6 +85,7 @@ public class Generics
         // Tipper vi lager det inni klasser, siden alt i C# er klasser. Her ser Mosh antageligvis for
         // seg at denne klassen skal inneholde masse annet, som er irrelevant i dette tilfelle. Det som
         // er relevant er at den også skal ha en generisk dictionary, som vi nå lager inni klassen (se klassen kalt DictionaryGeneric.cs)
+        // Under spesifiserer vi at key skal være string og value skal være Book. Men kan gjøre andre valg her, siden det er generisk.
 
         var bookDictionary = new DictionaryGeneric<string, Book>();
         bookDictionary.Add("Lord of the Rings", new Book());

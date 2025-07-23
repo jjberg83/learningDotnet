@@ -24,6 +24,13 @@ public class Utilities
     //     return firstElement > secondElement ? firstElement : secondElement;
     // }
 
+    // Totalt finnes det 5 constraint typer:
+    // 1 - where T : IInterface
+    // 2 - where T : EnKlasse (eller noen av dens subklasser)
+    // 3 - where T : struct (altså en value type)
+    // 4 - where T : class (altså en reference type)
+    // 5 - where T : new() (et objekt som har en default constructor)
+
     // I stedet må man bruke constraint, og det gjør man med å først si i signaturen
     // at T må implementere interfacet IComparable (den inneholder en nyttig metode for sammenligning av datatyper)
     public T Max<T>(T firstElement, T secondElement) where T : IComparable
