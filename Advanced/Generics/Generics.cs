@@ -69,9 +69,11 @@ public class Generics
         // ved runtime, og man unngår boxing og unboxing).
         // Men fordelen med listen over er jo at den kan ta inn mange forskjellige
         // datatyper i samme instans av listen.
+        // Her lager vi en instans med int som datatype input
         var genericListMedIntegers = new ListGeneric<int>();
         genericListMedIntegers.Add(343);
         Console.WriteLine($"genericListMedIntegers[0]: {genericListMedIntegers[0]}");
+        // Og her lager vi en instans av samme klasse, men denne gang med string som datatype input
         var genericListMedStrings = new ListGeneric<string>();
         genericListMedStrings.Add("lasdjf");
         Console.WriteLine($"genericListMedStrings[0]: {genericListMedStrings[0]}");
@@ -93,6 +95,12 @@ public class Generics
 
         // Hvis man ønsker å begrense hvilke datatyper T kan være for en Generic, 
         // må man bruke constraints. Se i klassen Utilities.cs for begynnelsen på dette.
+        // Totalt finnes 5 typer constraints innen Generics:
+        // 1 - where T : IInterface
+        // 2 - where T : EnKlasse (eller noen av dens subklasser)
+        // 3 - where T : struct (altså en value type)
+        // 4 - where T : class (altså en reference type)
+        // 5 - where T : new() (et objekt som har en default constructor)
         var utility = new Utilities();
 
         // Her bruker man Max metoden som tar inn ints
@@ -105,7 +113,7 @@ public class Generics
         Console.WriteLine(utility.Max('a', 'j')); // a gir ascii 97, mens j gir 106, viktig å bruke single quotes, fordi da bruker man ascii sammenligning med sine ASCII koder, string gir en annen sammenligning
         Console.WriteLine(utility.Max('a', 'A')); // a gir ascii 97, mens A gir 65
 
-        // Over har vi brukt én type constraint, nemlig interface. Totalt finnes det 5 constraint typer:
+        // Over har vi brukt én type constraint, nemlig interface (1). Som nevnt over finnes totalt det 5 constraint typer:
         // 1 - where T : IInterface
         // 2 - where T : EnKlasse (eller noen av dens subklasser)
         // 3 - where T : struct (altså en value type)
