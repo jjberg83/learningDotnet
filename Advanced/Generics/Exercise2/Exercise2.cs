@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System;
+
 namespace Advanced.Generics.Exercise2;
 /* 
 Spurte Github Copilot om å gi meg oppgaver for å teste min forståelse av Generics i C#. 
@@ -51,6 +54,7 @@ public class Exercise2
         Console.WriteLine($"Antall elementer i stack: {stringStack.Count}");
         // Console.WriteLine($"stringStack.Pop(): {stringStack.Pop()}");
         // Console.WriteLine($"stringStack.Peek(): {stringStack.Peek()}");
+        stringStack.Peek();
     }
 }
 

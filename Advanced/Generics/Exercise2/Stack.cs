@@ -39,6 +39,8 @@ public class Stack<T>
         return element;
     }
 
+    // Får ikke summary tagen til å virke under, og vet ikke hvorfor...
+    
     /// <summary>
     /// In the Peek method of your generic Stack<T> class, you should return the item at the top of the 
     /// stack without removing it.If the stack is empty, you should typically throw an 
