@@ -1,4 +1,5 @@
 namespace Advanced.Delegates;
+
 public class Delegates
 {
     public static void Run()
@@ -19,10 +20,12 @@ public class Delegates
         // processor.Process("photo.jpg");
 
         /* Versjon_2: 
-        */
+        
         var processor = new PhotoProcessor();
 
-        // Her er metodene jeg ønsker å bruke fra rammeverket
+        // Her er metodene JEG ønsker å bruke fra rammeverket
+        // Legg merke til at jeg bruker EN instans av PhotoProcessor, men nederst kalles
+        // metoden Process både med min og med Benjamins intstanser av delegaten.
         // Først får jeg tilgang til alle default metodene
         var filtersJørund = new PhotoFilters();
 
@@ -59,8 +62,58 @@ public class Delegates
         processor.Process("photo.jpg", filterHandlerBenjamin); // Delegaten vet hvilke metoder som skal kalles her
     }
 
-    public static void RemoveRedEye(Photo photo)
-    {
-        Console.WriteLine("Removing red eyes");
+        public static void RemoveRedEye(Photo photo)
+        {
+            Console.WriteLine("Removing red eyes");
+        }
+        */
+
+        /* Versjon_3: 
+        Alt her likt som i Versjon_2, men i stedet for å bruke en custom delegate vi ga navnet PhotoFilterHandler 
+        i klassen PhotoProcessor, bruker vi en generisk Action<>
+        */
+
+        var processor = new PhotoProcessor();
+
+        var filtersJørund = new PhotoFilters();
+
+        // Her er en plass vi må bytte gammel custom delegate med den generiske action<>
+        // PhotoProcessor.PhotoFilterHandler filterHandlerJørund = filtersJørund.ApplyBrightness;
+        Action<Photo> filterHandlerJørund = filtersJørund.ApplyBrightness;
+        filterHandlerJørund += filtersJørund.Resize;
+
+        var filtersBenjamin = new PhotoFilters();
+
+        // Her er en plass vi må bytte gammel custom delegate med den generiske action<>
+        // PhotoProcessor.PhotoFilterHandler filterHandlerBenjamin = filtersBenjamin.ApplyContrast;
+        Action<Photo> filterHandlerBenjamin = filtersBenjamin.ApplyContrast;
+
+        // Benjamin har også laget sin egen custom metode han vil bruke sammen med rammeverket.
+        // Denne har han definert selv. Det viktigste er at den må følge samme signatur som delegaten
+        // slik den er definert inni PhotoProcessor. Altså void Metodenavn(Photo photo).
+        // Å lage metoder inni Main klassen (her simulert med Delegates.Run()) er ingen god praksis.
+        // Jeg gjør det bare for å vise at delegaten kan inneholde metoder fra mange plasser.
+        filterHandlerBenjamin += RemoveRedEye;
+
+        // Og her legger jeg til en av metodene fra en annen klasse, akkurat likt som jeg gjorde lenger oppe
+        // bare her gjør vi det fra en annen klasse (og her har jeg gjort en av metodene statiske).
+        // Først den statiske.
+        filterHandlerBenjamin += ExtendedFrameWorkBenjamin.ChangeHue;
+        // Og så over til den som ikke er statisk. Vi må altså intansiere først (lage et objekt av klassen).
+        var filtersBenjaminExtended = new ExtendedFrameWorkBenjamin();
+        filterHandlerBenjamin += filtersBenjaminExtended.Crop;
+
+        // Over har jeg vist at hver delegate kan kalle på metoder som ligger vidt forskjellige plasser, noen
+        // statiske og andre ikke. 
+
+        processor.Process("photo.jpg", filterHandlerJørund); // Delegaten vet hvilke metoder som skal kalles her
+        Console.WriteLine("---------------------");
+        processor.Process("photo.jpg", filterHandlerBenjamin); // Delegaten vet hvilke metoder som skal kalles her
     }
-}
+
+        public static void RemoveRedEye(Photo photo)
+        {
+            Console.WriteLine("Removing red eyes");
+        }
+        
+    }
