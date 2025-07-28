@@ -109,6 +109,10 @@ public class Delegates
         processor.Process("photo.jpg", filterHandlerJørund); // Delegaten vet hvilke metoder som skal kalles her
         Console.WriteLine("---------------------");
         processor.Process("photo.jpg", filterHandlerBenjamin); // Delegaten vet hvilke metoder som skal kalles her
+
+    // Til slutt en link som inneholder god oversikt over forskjellige måter å bruke delegates på.
+    // Perfekt å lese og prøve å skrive på egenhånd etterpå.
+    // https://medium.com/@ravipatel.it/understanding-delegates-in-c-with-practical-examples-fdb253740ad7
     }
 
         public static void RemoveRedEye(Photo photo)
