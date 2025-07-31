@@ -15,6 +15,14 @@ public class LambdaExpressions
                 Console.WriteLine(book.Title);
         }
     }
+
+    // Dette er en predicate, et annet navn for en metode (eller lambda expression)
+    // som returnerer en boolean verdi. Den tar ofte inn en input og søker gjennom
+    // en samling av noe.
+    static bool IsCheaperThan50Dollars(Book book)
+    {
+        return book.Price < 50f;
+    }
     public static void Run()
     {
         /*
@@ -69,8 +77,34 @@ public class LambdaExpressions
 
         // Skriv lambda expression som returnerer alle bøker fra BookRepository
         // som er billigere enn 50
-        
-        CheapBooks(BookRepository.GetBooks());
+        // Han bruker en predicate, altså en metode (eller en lambda expression) som returnerer en boolean verdi
+        // (han gjør det først med en eksplisitt skrevet metode, se metoden kalt IsCheaperThan50Dollars over)
+
+        List<Book> books = BookRepository.GetBooks();
+
+        // Trykke man punktum under og ser på argumentene for alle Find metodene,
+        // ser man at de tar inn Predicate som argument, altså vil predicaten vi skrev over
+        //, som ikke er noe annet enn en metode som returnerer en bool, være perfekt.
+        // books.Find
+
+        // Vi bruker altså en eksplisitt skrevet metode her
+        // I dette tilfellet er denne eksplisitt skrevne metoden også en såkalt predicate
+        List<Book> veryCheapBooks = books.FindAll(IsCheaperThan50Dollars);
+
+        foreach (Book book in veryCheapBooks)
+        {
+            Console.WriteLine(book.Title);
+        }
+
+        // Og her er instruktørens løsning på det samme bare med bruk av lambda expressions
+        // Argumentet inni FindAll er også denne gangen en predicate, men i lambda expression format
+        // Altså ikke en eksplisitt skrevet metode
+        List<Book> veryCheapLambdaBooks = books.FindAll(book => book.Price < 50f);
+
+        foreach (Book book in veryCheapLambdaBooks)
+        {
+            Console.WriteLine(book.Title);
+        }
 
     }
 }
