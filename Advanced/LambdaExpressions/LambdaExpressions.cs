@@ -28,7 +28,7 @@ public class LambdaExpressions
         /*
         Lambda expressions er anonyme metoder som ikke har:
         - navn
-        - access modifier
+        - access modifier (public, private osv)
         - return statements (eller return type)
 
         Blir brukt for å slippe å skrive masse kode.

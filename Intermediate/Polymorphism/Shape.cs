@@ -1,4 +1,4 @@
-using Intermediate.Polymorphism.Decoupled_Code;
+using Intermediate.Polymorphism.Decoupled_Code_With_Inheritance;
 
 namespace Intermediate.Polymorphism;
 internal abstract class Shape

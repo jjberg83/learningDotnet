@@ -1,4 +1,4 @@
-namespace Intermediate.Polymorphism.Decoupled_Code;
+namespace Intermediate.Polymorphism.Decoupled_Code_With_Delegates;
 
 internal class Triangle : Shape
 {
