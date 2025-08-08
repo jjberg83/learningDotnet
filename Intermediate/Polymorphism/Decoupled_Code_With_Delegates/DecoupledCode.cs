@@ -1,4 +1,5 @@
 namespace Intermediate.Polymorphism.Decoupled_Code_With_Delegates;
+
 internal class DecoupledCode
 {
     public static void Run()
@@ -14,10 +15,20 @@ internal class DecoupledCode
         // Så kan vi kjøre Draw metoden med forskjellige Action delegates, og se at de henter
         // inn og kjører forskjellige metoder (noen fra square, noen fra cirlce osv)
         // Vi kan gjøre dette både med inheritance, interfaces og også uten noen av de om vi vil.
-        
-        var shapes = new List<Shape>() { sirkel, firkant, trekant };
+
+        // var shapes = new List<Shape>() { sirkel, firkant, trekant };
 
         var canvas = new Canvas();
-        canvas.Draw(shapes);
+        // canvas.Draw(shapes);
+
+        Action<Shape> myFirstDelegate = methodInMain;
+        myFirstDelegate += sirkel.Draw;
+
+        canvas.Draw(myFirstDelegate);
+    }
+
+    public static void methodInMain(Shape shape)
+    {
+        Console.WriteLine("Draw something...");
     }
 }
