@@ -1,4 +1,4 @@
-namespace Intermediate.Polymorphism.Decoupled_Code_With_Delegates;
+namespace Intermediate.Polymorphism.Decoupled_Code_With_Delegates_Action;
 
 internal class Square : Shape
 {
