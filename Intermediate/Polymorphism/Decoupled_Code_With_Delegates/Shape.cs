@@ -6,12 +6,7 @@ internal class Shape
     public int Height { get; set; }
     public Position Position { get; set; }
 
-    public static Shape Load()
-    {
-        return new Shape();
-    }
-
-    public virtual void Draw(Shape shape)
+    public static void Draw()
     {
         Console.WriteLine("Draw a SHAPE");
     }

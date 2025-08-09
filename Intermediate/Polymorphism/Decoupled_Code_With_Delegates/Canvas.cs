@@ -2,17 +2,9 @@ namespace Intermediate.Polymorphism.Decoupled_Code_With_Delegates;
 
 internal class Canvas
 {
-    public void Draw(Action<Shape> myDelegate)
+    public delegate void ShapeDelegate();
+    public void Draw(ShapeDelegate shapeDelegate)
     {
-        Shape shape = Shape.Load();
-
-        myDelegate(shape);
+        shapeDelegate();
     }
-    // public void Draw(List<Shape> shapes)
-    // {
-    //     foreach (var shape in shapes)
-    //     {
-    //         shape.Draw();
-    //     }
-    // }
 }
