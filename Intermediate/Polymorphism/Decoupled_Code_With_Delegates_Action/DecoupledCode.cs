@@ -5,24 +5,17 @@ internal class DecoupledCode
     public static void Run()
     {
         // I stedet for en liste med instanser av derived Shape classes (bruker inheritance i dette tilfelle,
-        // men kunne like greit brukt interfaces), bruker jeg en custom delegate. Bruker jeg Action<T> må
-        // jeg slenge inn Action<Shape>, noe jeg ikke ser noe grunn til å gjøre. Med custom delegate kan 
-        // jeg gjøre som jeg vil (se den i Canvas klassen). Deretter lager jeg to forksjellige instanser
-        // av denne delegaten, og setter de i gang med Draw metoden i Canvas.
-
-        // Oppdatering - jeg kunne visst brukt bare Action uten parametere!
-        // Action drawAction = Shape.Draw;
-        // drawAction();
+        // men kunne like greit brukt interfaces), bruker jeg en delegate med Action (uten parametere)
 
         var canvas = new Canvas();
 
-        Canvas.ShapeDelegate myFirstDelegate = methodInMain;
+        Action myFirstDelegate = methodInMain;
         myFirstDelegate += Circle.Draw;
         canvas.Draw(myFirstDelegate);
 
         Console.WriteLine();
 
-        Canvas.ShapeDelegate mySecondDelegate = Square.Draw;
+        Action mySecondDelegate = Square.Draw;
         mySecondDelegate += Triangle.Draw;
         canvas.Draw(mySecondDelegate);
     }
