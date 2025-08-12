@@ -9,6 +9,7 @@ public class VideoEncoder
 
     // Steg 1
     // Standard å legge til EventHandler til slutt i delegate navnet
+    // Denne signaturen må metodene i subscribers følge
     public delegate void VideoEncodedEventHandler(object source, EventArgs args);
 
     // Steg 2
