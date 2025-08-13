@@ -3,8 +3,9 @@ namespace Advanced.EventsAndDelegates;
 public class MailService
 {
     // Denne metoden må følge signaturen til delegaten i VideoEncoder
-    public void OnVideoEncoded(object source, EventArgs e)
+    public void OnVideoEncoded(object source, VideoEventArgs videoArgs)
     {
-        Console.WriteLine("Sending EMAIL");
+        // Nå kan vi gi info om hvilken film som har blitt encoded!
+        Console.WriteLine($"Sending EMAIL, the video titled {videoArgs.Video.Title} has been encoded");
     }
 }

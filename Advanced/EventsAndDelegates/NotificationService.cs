@@ -2,8 +2,9 @@ namespace Advanced.EventsAndDelegates;
 
 public class NotificationService
 {
-    public void OnVideoEncoded(object source, EventArgs e)
+    public void OnVideoEncoded(object source, VideoEventArgs videoArgs)
     {
-        Console.WriteLine("Sending NOTIFICATION");
+        // Nå kan vi gi info om hvilken film som har blitt encoded!
+        Console.WriteLine($"Sending NOTIFICATION, the video titled {videoArgs.Video.Title} has been encoded");
     }
 }

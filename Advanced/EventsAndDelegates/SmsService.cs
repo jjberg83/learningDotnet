@@ -2,8 +2,9 @@ namespace Advanced.EventsAndDelegates;
 
 public class SmsService
 {
-    public void OnVideoEncoded(object source, EventArgs e)
+    public void OnVideoEncoded(object source, VideoEventArgs videoArgs)
     {
-        Console.WriteLine("Sending SMS");
+        // Nå kan vi gi info om hvilken film som har blitt encoded!
+        Console.WriteLine($"Sending SMS, the video titled {videoArgs.Video.Title} has been encoded");
     }
 }
