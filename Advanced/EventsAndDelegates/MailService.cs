@@ -2,6 +2,12 @@ namespace Advanced.EventsAndDelegates;
 
 public class MailService
 {
+    // Uten argumenter i EventArgs
+    public void OnVideoEncoded(object source, EventArgs args)
+    {
+        Console.WriteLine($"Sending Mail");
+    }
+    // Med argumenter i EventArgs
     // Denne metoden må følge signaturen til delegaten i VideoEncoder
     public void OnVideoEncoded(object source, VideoEventArgs videoArgs)
     {

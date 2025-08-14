@@ -39,29 +39,85 @@ namespace Advanced.EventsAndDelegates;
 //     }
 // }
 
-// Versjon_2: Der vi lager en klasse VideoEventArgs som inneholder
-// data om Videoen som ble encodet
+// Versjon_2: Der man bruker den innebygde delegaten EventHandler i stedet
+// (kommer i to versjoner: EventHandler (uten argument) og EventHandler<TEventArgs>)
 public class VideoEncoder
 {
-    // Legg merket til at vi nå bruker den nye klassen VideoEventArgs, 
-    // som er derived fra base class EventArgs
-    public delegate void VideoEncodedEventHandler(object source, VideoEventArgs args);
-    public event VideoEncodedEventHandler VideoEncoded;
+    // Under legger vi bare inn EventHandler, den innebygde delegaten, som type for eventen
+    // Mao definerer den signaturen på metodene som subscribers må følge
+    public event EventHandler VideoEncoded;
     public void Encode(Video video)
     {
         Console.WriteLine("Encoding video...");
         Thread.Sleep(3000);
 
-        // Legg merke til at vi legger inn videoen som argument her
-        OnVideoEncoded(video);
+        // Steg 3
+        OnVideoEncoded();
     }
 
 
-    protected virtual void OnVideoEncoded(Video video)
+    // Konvensjon at EventPublisher methods skal være protected, virtual og void
+    // Navn skal være On<EventNavn>
+    // Denne metoden skal gi beskjed til alle subscribers (siden vi nå er i publisher klassen)
+    protected virtual void OnVideoEncoded()
     {
+        // Først må vi sjekke at det faktisk er subscribers til eventen
         if (VideoEncoded != null)
-            // Her ønsker vi i motsetning til før å legge til info,
-            // og dermed bruker vi den nye VideoEventArgs klassen her
-            VideoEncoded(this, new VideoEventArgs() { Video = video });
+            // Her gir vi beskjed til alle subsribers
+            // Siden source er denne klassen brukes this, og siden vi ikke vil legge til info bruker vi EventArgs.Empty
+            VideoEncoded(this, EventArgs.Empty);
     }
 }
+
+// Versjon_3: Der vi lager en klasse VideoEventArgs som inneholder
+// data om Videoen som ble encodet
+// public class VideoEncoder
+// {
+//     // Legg merket til at vi nå bruker den nye klassen VideoEventArgs, 
+//     // som er derived fra base class EventArgs
+//     public delegate void VideoEncodedEventHandler(object source, VideoEventArgs args);
+//     public event VideoEncodedEventHandler VideoEncoded;
+//     public void Encode(Video video)
+//     {
+//         Console.WriteLine("Encoding video...");
+//         Thread.Sleep(3000);
+
+//         // Legg merke til at vi legger inn videoen som argument her
+//         OnVideoEncoded(video);
+//     }
+
+
+//     protected virtual void OnVideoEncoded(Video video)
+//     {
+//         if (VideoEncoded != null)
+//             // Her ønsker vi i motsetning til før å legge til info,
+//             // og dermed bruker vi den nye VideoEventArgs klassen her
+//             VideoEncoded(this, new VideoEventArgs() { Video = video });
+//     }
+// }
+
+// Versjon_4: Der vi bruker en derived class av EventArgs for å gi mer info,
+// og i tillegg bruker en innebygd delegate (EventHandler - som kommer både med og uten EventArgs)
+// i stedet for den custom vi lagde i forrige eksempel
+// public class VideoEncoder
+// {
+//     public event EventHandler<VideoEventArgs> VideoEncoded;
+//     // Delegaten uten ekstra argumenter er EventHandler
+//     public void Encode(Video video)
+//     {
+//         Console.WriteLine("Encoding video...");
+//         Thread.Sleep(3000);
+
+//         // Legg merke til at vi legger inn videoen som argument her
+//         OnVideoEncoded(video);
+//     }
+
+
+//     protected virtual void OnVideoEncoded(Video video)
+//     {
+//         if (VideoEncoded != null)
+//             // Her ønsker vi i motsetning til før å legge til info,
+//             // og dermed bruker vi den nye VideoEventArgs klassen her
+//             VideoEncoded(this, new VideoEventArgs() { Video = video });
+//     }
+// }
