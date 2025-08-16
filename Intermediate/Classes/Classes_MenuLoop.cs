@@ -1,4 +1,5 @@
 namespace Intermediate.Classes;
+
 public class Classes_MenuLoop
 {
     public static void Run()
@@ -12,9 +13,16 @@ public class Classes_MenuLoop
             Console.WriteLine();
 
             string? userInput = Console.ReadLine();
-            
-            switch(userInput)
+
+            switch (userInput)
             {
+                case "GreieFraAdvancedExtensionMethods":
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("ExtensionMethod magic i bruk i annet project");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine();
+                    Exercise1.Run();
+                    break;
                 case "Exercise1":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("Exercise 1");
