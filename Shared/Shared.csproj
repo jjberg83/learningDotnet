@@ -7,9 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="../Fundamentals/Fundamentals.csproj" />
-    <ProjectReference Include="../Shared/Shared.csproj" />
-  </ItemGroup>
-
 </Project>

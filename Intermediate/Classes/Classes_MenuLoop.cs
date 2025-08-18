@@ -16,12 +16,13 @@ public class Classes_MenuLoop
 
             switch (userInput)
             {
+                // Her tester jeg ut bruk av Extensions methods fra Advanced kurset
                 case "GreieFraAdvancedExtensionMethods":
                     Console.WriteLine("-----------------");
                     Console.WriteLine("ExtensionMethod magic i bruk i annet project");
                     Console.WriteLine("-----------------");
                     Console.WriteLine();
-                    Exercise1.Run();
+                    ExtensionMethods.Run();
                     break;
                 case "Exercise1":
                     Console.WriteLine("-----------------");
