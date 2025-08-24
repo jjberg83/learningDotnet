@@ -68,12 +68,74 @@ public class LINQ
             Console.WriteLine(price);
         }
 
-        // Nå skal jeg finne den ene boken som heter "The wonders of the world"
+        // Nå skal jeg finne den ene boken som heter "Travel the world"
         // Legg merke til at vi nå får en Book, ikke en IEnumerable med Books
         // Det finnes også en metode kalt bare Single, men finnes ikke boken, krasjer applikasjonen.
-        // Med SingleOrDefault får man null tilbake hvis noe feil skjer.
-        var theWondersOfTheWorlds = books.SingleOrDefault(b => b.Title == "The wonders of the world");
-        Console.WriteLine(theWondersOfTheWorlds.Title);
+        // Med SingleOrDefault får man null tilbake hvis boken ikke finnes.
+
+
+        var traveTheWorldTypo = books.SingleOrDefault(b => b.Title == "Travel the worldh");
+        if (traveTheWorldTypo != null)
+            Console.WriteLine($"{traveTheWorldTypo.Title} costs {traveTheWorldTypo.Price}");
+        else
+            Console.WriteLine("Boken er null, altså finnes den ikke");
+
+        // Her er uten trykkfeil, og boken finnes
+        var traveTheWorld = books.SingleOrDefault(b => b.Title == "Travel the world");
+        if (traveTheWorld != null)
+            Console.WriteLine($"{traveTheWorld.Title} costs {traveTheWorld.Price}");
+        else
+            Console.WriteLine("Boken er null, altså finnes den ikke");
+
+        // Her ser vi svakheten med SingleOrDefault, når det finnes to elementer med samme navn
+        // Man får en exception som må håndteres
+        try
+        {
+            // SingleOrDefault gir deg en exception hvis det finnes to stk med samme navn
+            var theWondersOfTheWorld = books.SingleOrDefault(b => b.Title == "The wonders of the world");
+            Console.WriteLine($"{theWondersOfTheWorld.Title} koster {theWondersOfTheWorld.Price}");
+        }
+        catch
+        {
+            Console.WriteLine("SingleOrDefault ga en exception, og man kan ikke få ut tittel eller pris fra en exception");
+        }
+
+        // Når det finnes to elementer med samme navn, er First et bedre alternativ
+        var firstTheWondersOfTheWorld = books.FirstOrDefault(b => b.Title == "The wonders of the world");
+        if (firstTheWondersOfTheWorld != null)
+            Console.WriteLine($"First instance of {firstTheWondersOfTheWorld.Title} costs {firstTheWondersOfTheWorld.Price}");
+        else
+            Console.WriteLine("Boken finnes ikke i BookRepository");
+
+        // Og her finnes siste tilfelle
+        var lastTheWondersOfTheWorld = books.LastOrDefault(b => b.Title == "The wonders of the world");
+        if (lastTheWondersOfTheWorld != null)
+            Console.WriteLine($"Last instance of {lastTheWondersOfTheWorld.Title} costs {lastTheWondersOfTheWorld.Price}");
+        else
+            Console.WriteLine("Boken finnes ikke i BookRepository");
+
+        Console.WriteLine("---------------------");
+        // Her henter vi ut et utvalg av listen
+        var utvalg = books.Skip(2).Take(3);
+        foreach (var book in utvalg)
+            Console.WriteLine(book.Title);
+
+        // Her teller vi antall bøker i BookRepository
+        Console.WriteLine($"Det finnes {books.Count()} i BookRepository");
+
+        // Her teller vi et utvalg, utvalget har bare 2, selv om vi tar 3, fordi vi starter på de to siste elementene
+        Console.WriteLine($"Det finnes {books.Skip(5).Take(3).Count()} i utvalget av BookRepository");
+
+        // Her finner vi dyreste og billigste bok
+        Console.WriteLine($"Den dyreste boken koster {books.Max(b => b.Price)}");
+        Console.WriteLine($"Den billigste boken koster {books.Min(b => b.Price)}");
+
+        // Summering
+        Console.WriteLine($"Bøkene koster til sammen {books.Sum(b => b.Price)}");
+
+        // Snitt
+        Console.WriteLine($"Bøkene koster i snitt {books.Average(b => b.Price)}");
+
     }
 
 
