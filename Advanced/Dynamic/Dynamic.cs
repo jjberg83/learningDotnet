@@ -23,27 +23,58 @@ public class Dynamic
         Console.WriteLine(hashcode);
 
         // Og her gjør han det med Reflections (han kaller det messy og ugly)
-        // Og jeg får det ikke til å virke en gang!
-        // Poenget, som jeg har sett i Reflections når jeg bruker det i stedet
-        // for menyloopene mine, er at vi antar at det skal finnes en metdoe kalt
-        // GetHashCode.
-        // var methodInfo = obj.GetType().GetMethod("GetHashCode", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
-        // var hashcode = methodInfo.Invoke(null, null);
-        // Console.WriteLine(hashcode);
+        // Poenget, som jeg har sett i menyloopene mine der jeg bruker Reflections,
+        // er at vi antar at det skal finnes en metode kalt GetHashCode.
+        var methodInfo = obj.GetType().GetMethod("GetHashCode", Type.EmptyTypes);
+        var hashcodeWithReflections = methodInfo.Invoke(obj, null);
+        Console.WriteLine(hashcodeWithReflections);
 
         // Man kan gjøre det samme med Dynamic, men det ser helt likt ut som vanlig C# kode
         // Se for deg at man får inn et Excel object, og man vet at det objektet skal ha 
         // en metode kalt Optimize. Det er ikke en metode som finnes i Dotnet. Men ved
-        // å bruke Dynamics i stedet for Reflections, kan man gjøre det som under.
+        // å bruke Dynamics i stedet for Reflections, kan man gjøre det som under. Vi simulerer altså et Excel objekt med en string.
 
-        // Dette går ikke, fordi Dotnet ikke aner noe om en metode kalt Optimize.
-        // object excelObject = "Excel"; // Her lager vi string bare fordi vi ikke har et ekte Excel objekt, men hadde funket uansett.
-        // excelObject.Optimmize(); // Her ser man at metoden ikke finnes i Dotnet verden
+        // Optimize funksjonen under feiler allerede ved kompilering (man får røde streker, og kan ikke bygge)
+        // object excelObject = "Excel"; 
+        // excelObject.Optimmize(); // 
 
-        // Alle ting i C# er objects, og det er derfor vi gir den typen til hva enn vi får inn fra Excel
-        // Men som du ser finnes ikke den metoden for object. Ved å gjøre typen om til Dynamic, løser alt seg
+        // Ved kompilering feiler ikke dette (dotnet build sier GO). Men ved runtime gjør det det, fordi metoden er fiktiv og kom aldri inn
+        // Metoden kan altså ikke kalles på ved runtime, men det er OK ved kompilering.
         dynamic dynamicExcelObject = "Excel";
-        dynamicExcelObject.Optimize(); // Ingen feilmelding!
+        // dynamicExcelObject.Optimize();
+
+        // Han bare nevner kort at Dynamics virker under the hood ved at det sitter en DLR,
+        // altså en Dynamic Language Runtime, oppå CLR, Common Language Runtime, som oversetter
+        // Intermediate Language (IL) om til machine kode for den spesifikke maskinen som kjører koden
+
+        // Man får også muligheten til å bruke variabler som om de skulle vært Python variabler
+        // (altså at en variabel først kan være en string, og så plutselig være en int)
+        dynamic navn = "Jørund";
+        navn = 1;
+        Console.WriteLine(navn);
+
+        // Her ser man et nytt eksempel på noe som ikke feiler ved kompilering (dotnet build),
+        // men feiler ved runtime (dotnet run)
+        dynamic myString = "Koding er kjekt";
+        // myString++;
+
+        // Ved kompilering er altså typen dynamic, men ved runtime får de en faktisk type (string, int osv)
+        // Her er et annet eksempel. Alle disse typene er Dynamic ved kompilering, men alle blir ints ved runtime
+        dynamic a = 10;
+        dynamic b = 5;
+        var c = a + b;
+        // Hovrer man over variablene er de dynamic. Men når vi skriver datatypene ut er de ints
+        Console.WriteLine($"a -> {a.GetType()}");
+        Console.WriteLine($"b -> {b.GetType()}");
+        Console.WriteLine($"c -> {c.GetType()}");
+
+        // Det går også fint å gå andre veien, fra en viss type til dynamic. Her er e dynamic ved kompilering, og int ved runtime.
+        // I f, er det ingen problem å legge inn Int32 inn i en Int64.
+        int d = 3;
+        dynamic e = d;
+        long f = e;
+        Console.WriteLine($"e -> {e.GetType()}");
+        Console.WriteLine($"f -> {f.GetType()}");
 
 
 
