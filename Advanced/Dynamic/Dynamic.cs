@@ -76,7 +76,9 @@ public class Dynamic
         Console.WriteLine($"e -> {e.GetType()}");
         Console.WriteLine($"f -> {f.GetType()}");
 
-
+        // Jeg prøvde å bytte ut menyloopene mine som jeg har i Program.cs filene mine. De bruker Reflections.
+        // Jeg fikk ikke til å gjøre det bedre med dynamic. Problemet tror jeg har noe å gjøre med at
+        // Reflections virker bra på tekst input, mens dynamic virker bra på variabler. 
 
 
 
