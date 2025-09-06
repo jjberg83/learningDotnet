@@ -1,4 +1,12 @@
+using Advanced.EventsAndDelegates;
+
 namespace Advanced.ExceptionHandling;
+
+// // Oppsummering av leksjonen:
+// 1 - vanlig try-catch fra spesifikt til mer og mer generelle feil
+// 2 - finally eksplisitt
+// 3 - finally implisitt (med å bruke using)
+// 4 - custom exceptions (for når man vil pakke inn exceptions inn i noe mer forståelig)
 
 public class ExceptionHandling
 {
@@ -35,6 +43,9 @@ public class ExceptionHandling
     // Dispose greiene tar using seg av. Så alt som skjedde i eksempelet over, skjer også i dette eksempelet, men using tar seg av garbage disposal greiene
 
     // Fjerde eksempel: custom exceptions
+    // Se klassen kalt YouTubeApi.cs. Poenget er at mye kan gå galt i try-blokken der, når man bruker YouTubes API. 
+    // Han sier man ikke ønsker å vise "lower-level exceptions" i vår applikasjon. I stedet for å vise de, lager han
+    // en egen exception (som altså er en klasse), som heter YouTubeException.
 
     public static void Run()
     {
@@ -98,5 +109,18 @@ public class ExceptionHandling
         //     Console.WriteLine("Ting gikk ikke bra.");
         // }
         // // Ingen finally block nødvendig, fordi using over har laget en finally block under-the-hood der Dispose-metoden ble kalt på hvis den trengs.
+
+        // Fjerde eksempel
+        try
+        {
+            var youTubeApi = new YouTubeApi();
+            var jørundsVideoer = youTubeApi.GetVideos("Jørund Jenssen Berg");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Vår ikke-asperbergs forklaring på feilen: {e.Message}");
+            Console.WriteLine($"Den indre feilen, som vi fortsatt har tatt vare på {e.InnerException.Message}");
+        }
+
     }
 }
