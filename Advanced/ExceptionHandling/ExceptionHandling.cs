@@ -29,6 +29,13 @@ public class ExceptionHandling
     // Det er viktig å lukke disse og rydde opp hvis noe går gale (altså i finally blokken helt sist). Det gjør man ved å bruke 
     // et interface kalt IDisposable, og metoden Dispose().
 
+    // Tredje TRY-CATCH eksempel:
+    // Han skriver det samme som eksempelet over, med mindre kode.
+    // Det gjør man ved å bruke using. Man trenger ikke å lage en variabel utenfor try-catch-finally blokkene, og man trenger heller ingen finally block
+    // Dispose greiene tar using seg av. Så alt som skjedde i eksempelet over, skjer også i dette eksempelet, men using tar seg av garbage disposal greiene
+
+    // Fjerde eksempel: custom exceptions
+
     public static void Run()
     {
         // Første TRY-CATCH eksempel.
@@ -51,25 +58,45 @@ public class ExceptionHandling
         // }
 
         // Andre TRY-CATCH eksempel:
-        StreamReader streamReader = null; // Definerer den utenfor try,catch og finally for at alle skal kunne nå den.
-        try
-        {
-            streamReader = new StreamReader("/Users/jjberg/Github/learningDotnet/Advanced/ExceptionHandling/ExceptionHandling.cs");
-            var content = streamReader.ReadToEnd();
-            Console.WriteLine("Ting gikk bra");
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Ting gikk ikke bra, men jeg har fortsatt ikke utført manuell garbage collection av StreamReaderen.");
-        }
-        finally
-        {
-            if (streamReader != null)
-            {
-                Console.WriteLine("streamReader er ikke null, og vi må drive manuell garbage collection");
-                streamReader.Dispose(); // StreamReader er en unmanaged resource, fordi det har med filer å gjøre. Viktig å rydde hvis ting går gale.
-            }
-            Console.WriteLine("Uansett hva som skjer ovnenfor, om man havner i en try eller catch, ender man til slutt opp i finally.");
-        }
+        // StreamReader streamReader = null; // Definerer den utenfor try,catch og finally for at alle skal kunne nå den.
+        // try
+        // {
+        //     streamReader = new StreamReader("/Users/jjberg/Github/learningDotnet/Advanced/ExceptionHandling/ExceptionHandling.cs"); // Denne pathen finnes, og fører til at alt går bra
+        //     // streamReader = new StreamReader("/Users/jjberg/Github/learningDotnetasdf/Advanced/ExceptionHandling/ExceptionHandling.cs"); // Denne pathen finnes ikke, og fører til exception
+        //     var content = streamReader.ReadToEnd();
+        //     Console.WriteLine("Ting gikk bra");
+        // }
+        // catch (Exception e)
+        // {
+        //     Console.WriteLine("Ting gikk ikke bra.");
+        // }
+        // finally
+        // {
+        //     if (streamReader != null)
+        //     {
+        //         Console.WriteLine("streamReader er ikke null, og vi må drive manuell garbage collection");
+        //         streamReader.Dispose(); // StreamReader er en unmanaged resource, fordi det har med filer å gjøre. Viktig å rydde hvis ting går gale.
+        //     }
+        //     Console.WriteLine("Uansett hva som skjer ovnenfor, om man havner i en try eller catch, ender man til slutt opp i finally.");
+        // }
+
+        // Tredje TRY-CATCH eksempel:
+        // Ingen variabel utenfor blokkene her
+        // Det er norm å bruke using i stedet for å skrive finally block eksplisitt, så bare bli vant med det, og vit at det egentlig ser ut som det over under-the-hood
+        // try
+        // {
+        //     // Under-the-hood vil using under lage en finally block hvor dispose metoden kalles hvis nødvendig
+        //     // using (var streamReader = new StreamReader("/Users/jjberg/Github/learningDotnet/Advanced/ExceptionHandling/ExceptionHandling.cs")) // Denne pathen finnes, og fører til at alt går bra
+        //     using (var streamReader = new StreamReader("/Users_03948530498530485###_____/jjberg/Github/learningDotnet/Advanced/ExceptionHandling/ExceptionHandling.cs")) // Denne pathen finnes ikke, og fører til exception
+        //     {
+        //         var content = streamReader.ReadToEnd();
+        //     }
+        //     Console.WriteLine("Ting gikk bra");
+        // }
+        // catch (Exception e)
+        // {
+        //     Console.WriteLine("Ting gikk ikke bra.");
+        // }
+        // // Ingen finally block nødvendig, fordi using over har laget en finally block under-the-hood der Dispose-metoden ble kalt på hvis den trengs.
     }
 }
